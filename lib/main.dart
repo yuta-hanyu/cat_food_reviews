@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cat_food_reviews/core/app_theme.dart';
 import 'package:cat_food_reviews/views/onboarding_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cat_food_reviews/core/firebase/firebase_options.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
   runApp(const ProviderScope(child: CatFoodReviewsApp()));
 }
 
