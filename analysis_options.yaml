@@ -1,28 +1,92 @@
-# This file configures the analyzer, which statically analyzes Dart code to
-# check for errors, warnings, and lints.
-#
-# The issues identified by the analyzer are surfaced in the UI of Dart-enabled
-# IDEs (https://dart.dev/tools#ides-and-editors). The analyzer can also be
-# invoked from the command line by running `flutter analyze`.
-
-# The following line activates a set of recommended lints for Flutter apps,
-# packages, and plugins designed to encourage good coding practices.
 include: package:flutter_lints/flutter.yaml
 
-linter:
-  # The lint rules applied to this project can be customized in the
-  # section below to disable rules from the `package:flutter_lints/flutter.yaml`
-  # included above or to enable additional rules. A list of all available lints
-  # and their documentation is published at https://dart.dev/lints.
-  #
-  # Instead of disabling a lint rule for the entire project in the
-  # section below, it can also be suppressed for a single line of code
-  # or a specific dart file by using the `// ignore: name_of_lint` and
-  # `// ignore_for_file: name_of_lint` syntax on the line or in the file
-  # producing the lint.
-  rules:
-    # avoid_print: false  # Uncomment to disable the `avoid_print` rule
-    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+analyzer:
+  exclude:
+    # 自動生成されたファイルは解析対象から除外
+    - "**/*.freezed.dart"
+    - "**/*.g.dart"
+    - "**/*.tailor.dart"
+    - lib/l10n/app_localizations*.dart
+    - lib/gen/assets.gen.dart
+  language:
+    strict-casts: true
+    strict-inference: true
+    strict-raw-types: true
+  errors:
+    # Freezedで@JsonKeyをコンストラクタパラメータに使用する際の警告を無視
+    invalid_annotation_target: ignore
+    included_file_warning: ignore
+  plugins:
+    - custom_lint
 
-# Additional information about this file can be found at
-# https://dart.dev/guides/language/analysis-options
+custom_lint:
+  rules:
+    # riverpod_lintルールを有効化
+    # riverpod_lintのデフォルトルールをすべて使用
+
+linter:
+  rules:
+    # flutter_lintsに含まれていないが有用なルールを追加
+    # https://dart.dev/tools/linter-rules から必要と思われるものを列挙
+    # https://github.com/flutter/packages/blob/main/packages/flutter_lints/lib/flutter.yaml（標準推奨ルール） で標準適用されないものを列挙
+    # 
+    # 注意：all_lint_rules.yamlをincludeして無効化する方式ではなく、
+    # 必要なルールのみ個別有効化する方式を採用（段階的導入・チーム負担軽減のため）
+    
+    # === パフォーマンス（flutter_lints 5.0.0で削除されたため明示的に追加）===
+    prefer_const_constructors: true
+    prefer_const_literals_to_create_immutables: true
+    prefer_const_declarations: true
+
+    # === メモリ管理（Critical）===
+    close_sinks: true
+    cancel_subscriptions: true
+    
+    # === 非同期処理の安全性（Critical）===
+    unawaited_futures: true
+
+    # === 型安全性 ===
+    always_declare_return_types: true
+    avoid_dynamic_calls: true
+    avoid_type_to_string: true
+    only_throw_errors: true
+    
+    # === インポート・構成 ===
+    always_use_package_imports: true
+    comment_references: true
+    
+    # === 可読性 ===
+    avoid_multiple_declarations_per_line: true
+    join_return_with_assignment: true
+    leading_newlines_in_multiline_strings: true
+    no_adjacent_strings_in_list: true
+    no_literal_bool_comparisons: true
+    sort_constructors_first: true
+    sort_pub_dependencies: true
+    
+    # === イミュータビリティ ===
+    parameter_assignments: true
+    prefer_final_in_for_each: true
+    prefer_final_locals: true
+    
+    # === コレクション ===
+    prefer_for_elements_to_map_fromIterable: true
+    prefer_foreach: true
+    prefer_inlined_adds: true
+    
+    # === コンストラクタ ===
+    prefer_constructors_over_static_methods: true
+    
+    # === null安全性 ===
+    prefer_null_aware_method_calls: true
+    
+    # === Flutter Widget ===
+    use_colored_box: true
+    use_enums: true
+    use_named_constants: true
+    
+    # === 最適化 ===
+    use_late_for_private_fields_and_variables: true
+    use_raw_strings: true
+    use_string_buffers: true
+    use_is_even_rather_than_modulo: true
