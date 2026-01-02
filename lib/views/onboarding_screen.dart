@@ -40,8 +40,18 @@ class OnboardingScreen extends ConsumerWidget {
                   height: MediaQuery.of(context).size.height * 0.4,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: AppColors.cardBackground,
                     borderRadius: BorderRadius.circular(32),
+                    image: const DecorationImage(
+                      image: AssetImage('assets/images/main_theme.png'),
+                      fit: BoxFit.cover,
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.brown.withValues(alpha: 0.3),
+                        blurRadius: 20,
+                        offset: const Offset(0, 8),
+                      ),
+                    ],
                   ),
                   child: Stack(
                     children: [
@@ -57,6 +67,13 @@ class OnboardingScreen extends ConsumerWidget {
                           decoration: BoxDecoration(
                             color: AppColors.white,
                             borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withValues(alpha: 0.1),
+                                blurRadius: 8,
+                                offset: const Offset(0, 2),
+                              ),
+                            ],
                           ),
                           child: const Row(
                             mainAxisSize: MainAxisSize.min,
@@ -79,33 +96,14 @@ class OnboardingScreen extends ConsumerWidget {
                         ),
                       ),
 
-                      // Cat illustration placeholder
-                      Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            // Placeholder for cat image
-                            Container(
-                              width: 200,
-                              height: 150,
-                              decoration: BoxDecoration(
-                                color: Colors.white.withValues(alpha: 0.2),
-                                borderRadius: BorderRadius.circular(16),
-                              ),
-                              child: const Icon(
-                                Icons.pets,
-                                size: 80,
-                                color: Colors.white70,
-                              ),
-                            ),
-                            const SizedBox(height: 16),
-                            // Paw print
-                            const Icon(
-                              Icons.pets,
-                              color: Colors.white70,
-                              size: 32,
-                            ),
-                          ],
+                      // Main theme image is now the background
+                      // Adding a subtle overlay for better text readability
+                      Positioned.fill(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(32),
+                            color: Colors.transparent,
+                          ),
                         ),
                       ),
                     ],
