@@ -3,5 +3,13 @@
     "files.autoSave": "afterDelay",
     "[dart]": {
         "editor.formatOnSave": true
-    }
+    },
+    "workbench.colorCustomizations": {
+      "titleBar.activeBackground": "#d63447",
+      "titleBar.activeForeground": "#ffffff",
+      "titleBar.inactiveBackground": "#b82a3a",
+      "titleBar.inactiveForeground": "#e0e0e0",
+      "statusBar.background": "#d63447",
+      "statusBar.foreground": "#ffffff"
+  }
 }
