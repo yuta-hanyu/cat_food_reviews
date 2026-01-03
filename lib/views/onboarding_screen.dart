@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cat_food_reviews/core/app_colors.dart';
+import 'package:cat_food_reviews/core/analytics/analytics_provider.dart';
 import 'package:cat_food_reviews/models/app_feature.dart';
 import 'package:cat_food_reviews/view_models/onboarding_view_model.dart';
 import 'package:cat_food_reviews/widgets/feature_card.dart';
@@ -12,6 +13,12 @@ class OnboardingScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(onboardingViewModelProvider);
     final viewModel = ref.read(onboardingViewModelProvider.notifier);
+    final analytics = ref.read(analyticsProvider);
+
+    // 画面表示イベントを送信
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      analytics.logScreenView('onboarding');
+    });
 
     return Scaffold(
       backgroundColor: AppColors.background,
@@ -189,7 +196,10 @@ class OnboardingScreen extends ConsumerWidget {
                   child: ElevatedButton(
                     onPressed: state.isAnalyzing
                         ? null
-                        : () => viewModel.startAnalysis(),
+                        : () {
+                            analytics.logEvent('onboarding_start_clicked');
+                            viewModel.startAnalysis();
+                          },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.buttonPrimary,
                       foregroundColor: AppColors.white,
