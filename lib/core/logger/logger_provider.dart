@@ -1,10 +1,11 @@
-import 'package:logger/logger.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+import 'package:cat_food_reviews/core/logger/app_logger.dart';
 
 part 'logger_provider.g.dart';
 
-/// Logger プロバイダ
+/// AppLogger プロバイダ
 @riverpod
-Logger logger(Ref ref) {
-  return Logger();
+AppLogger appLogger(Ref ref) {
+  return AppLogger();
 }

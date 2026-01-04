@@ -8,47 +8,48 @@ part of 'logger_provider.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// Logger プロバイダ
+/// AppLogger プロバイダ
 
-@ProviderFor(logger)
-const loggerProvider = LoggerProvider._();
+@ProviderFor(appLogger)
+const appLoggerProvider = AppLoggerProvider._();
 
-/// Logger プロバイダ
+/// AppLogger プロバイダ
 
-final class LoggerProvider extends $FunctionalProvider<Logger, Logger, Logger>
-    with $Provider<Logger> {
-  /// Logger プロバイダ
-  const LoggerProvider._()
+final class AppLoggerProvider
+    extends $FunctionalProvider<AppLogger, AppLogger, AppLogger>
+    with $Provider<AppLogger> {
+  /// AppLogger プロバイダ
+  const AppLoggerProvider._()
     : super(
         from: null,
         argument: null,
         retry: null,
-        name: r'loggerProvider',
+        name: r'appLoggerProvider',
         isAutoDispose: true,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
 
   @override
-  String debugGetCreateSourceHash() => _$loggerHash();
+  String debugGetCreateSourceHash() => _$appLoggerHash();
 
   @$internal
   @override
-  $ProviderElement<Logger> $createElement($ProviderPointer pointer) =>
+  $ProviderElement<AppLogger> $createElement($ProviderPointer pointer) =>
       $ProviderElement(pointer);
 
   @override
-  Logger create(Ref ref) {
-    return logger(ref);
+  AppLogger create(Ref ref) {
+    return appLogger(ref);
   }
 
   /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(Logger value) {
+  Override overrideWithValue(AppLogger value) {
     return $ProviderOverride(
       origin: this,
-      providerOverride: $SyncValueProvider<Logger>(value),
+      providerOverride: $SyncValueProvider<AppLogger>(value),
     );
   }
 }
 
-String _$loggerHash() => r'e924b3a95e92172362ca2d61a41a6fa30c085925';
+String _$appLoggerHash() => r'7a3044f5a0d402b3650407c5580520f6e78a1e22';
