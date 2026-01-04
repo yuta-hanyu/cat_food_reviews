@@ -41,11 +41,7 @@
 //       _$NutritionScoreFromJson(json);
 // }
 
-enum SafetyLevel {
-  safe,
-  caution,
-  danger,
-}
+enum SafetyLevel { safe, caution, danger }
 
 extension SafetyLevelExtension on SafetyLevel {
   String get displayName {

@@ -200,6 +200,7 @@ class OnboardingScreen extends ConsumerWidget {
                             await analytics.logEvent(
                               'onboarding_start_clicked',
                             );
+
                             viewModel.startAnalysis();
                           },
                     style: ElevatedButton.styleFrom(

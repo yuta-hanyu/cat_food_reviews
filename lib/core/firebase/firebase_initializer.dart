@@ -1,7 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 
-import 'package:cat_food_reviews/core/firebase/options/firebase_options_dev.dart' as dev;
-import 'package:cat_food_reviews/core/firebase/options/firebase_options_prod.dart' as prod;
+import 'package:cat_food_reviews/core/firebase/options/firebase_options_dev.dart'
+    as dev;
+import 'package:cat_food_reviews/core/firebase/options/firebase_options_prod.dart'
+    as prod;
 
 /// Firebaseの初期化を実行するクラス
 class FirebaseInitializer {

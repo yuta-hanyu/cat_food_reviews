@@ -8,7 +8,7 @@ part 'analytics_provider.g.dart';
 /// Firebase Analyticsサービスプロバイダー
 @riverpod
 AnalyticsService analytics(Ref ref) {
-  final logger = ref.read(loggerProvider);
+  final logger = ref.read(appLoggerProvider);
   final firebaseAnalytics = ref.read(firebaseAnalyticsProvider);
   return AnalyticsService(logger: logger, firebaseAnalytics: firebaseAnalytics);
 }

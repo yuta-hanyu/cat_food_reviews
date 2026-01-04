@@ -43,18 +43,18 @@ class AppLogger {
   void w({required String message, String? tag}) {
     if (_isDev) {
       _logger.w(_formatMessage(message, tag));
-    } else {
-      unawaited(
-        Sentry.captureMessage(
-          _formatMessage(message, tag),
-          level: SentryLevel.warning,
-          withScope: (scope) {
-            scope.setTag('log_level', 'warning');
-            scope.setTag('environment', _flavor);
-          },
-        ),
-      );
     }
+
+    unawaited(
+      Sentry.captureMessage(
+        _formatMessage(message, tag),
+        level: SentryLevel.warning,
+        withScope: (scope) {
+          scope.setTag('log_level', 'warning');
+          scope.setTag('environment', _flavor);
+        },
+      ),
+    );
   }
 
   void e({
@@ -69,17 +69,17 @@ class AppLogger {
         error: error,
         stackTrace: stackTrace,
       );
-    } else {
-      unawaited(
-        Sentry.captureException(
-          error ?? Exception(_formatMessage(message, tag)),
-          stackTrace: stackTrace,
-          withScope: (scope) {
-            scope.setTag('log_level', 'error');
-            scope.setTag('environment', _flavor);
-          },
-        ),
-      );
     }
+
+    unawaited(
+      Sentry.captureException(
+        error ?? Exception(_formatMessage(message, tag)),
+        stackTrace: stackTrace,
+        withScope: (scope) {
+          scope.setTag('log_level', 'error');
+          scope.setTag('environment', _flavor);
+        },
+      ),
+    );
   }
 }
