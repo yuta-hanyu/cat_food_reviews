@@ -61,16 +61,20 @@ class AnalyticsService {
     String eventName, {
     Map<String, Object>? parameters,
   }) async {
-    AnalyticsValidator.validateEvent(eventName, parameters);
-
+    _logger.i('🔥 Attempting to log event: $eventName with parameters: $parameters');
+    
     try {
+      AnalyticsValidator.validateEvent(eventName, parameters);
+      _logger.i('✅ Event validation passed for: $eventName');
+      
       await _firebaseAnalytics.logEvent(
         name: eventName,
         parameters: parameters,
       );
-      _logger.d('Analytics event logged: $eventName');
+      _logger.i('✅ Analytics event sent successfully: $eventName');
     } catch (e) {
-      _logger.e('Failed to log event: $eventName - $e');
+      _logger.e('❌ Failed to log event: $eventName - Error: $e');
+      rethrow;
     }
   }
 

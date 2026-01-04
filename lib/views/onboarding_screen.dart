@@ -196,8 +196,10 @@ class OnboardingScreen extends ConsumerWidget {
                   child: ElevatedButton(
                     onPressed: state.isAnalyzing
                         ? null
-                        : () {
-                            analytics.logEvent('onboarding_start_clicked');
+                        : () async {
+                            await analytics.logEvent(
+                              'onboarding_start_clicked',
+                            );
                             viewModel.startAnalysis();
                           },
                     style: ElevatedButton.styleFrom(
