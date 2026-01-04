@@ -1,48 +1,72 @@
-# Miscellaneous
-*.class
-*.log
-*.pyc
-*.swp
+# General
 .DS_Store
-.atom/
-.build/
-.buildlog/
-.history
-.svn/
-.swiftpm/
-migrate_working_dir/
 
-# IntelliJ related
+# FVM
+.fvm/
+
+# Flutter/Dart
+.dart_tool/
+.flutter-plugins-dependencies
+.pub/
+build/
+custom_lint.log
+
+# IDE - IntelliJ
 *.iml
 *.ipr
 *.iws
 .idea/
+out/
 
-# The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
 
-# Flutter/Dart/Pub related
-**/doc/api/
-**/ios/Flutter/.last_build_id
-.dart_tool/
-.flutter-plugins
-.flutter-plugins-dependencies
-.pub-cache/
-.pub/
-/build/
+# iOS
+**/ios/Flutter/Dart-Defines.xcconfig
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Flutter/Generated.xcconfig
+ios/Flutter/ephemeral/
+ios/ServiceDefinitions.json
+ios/Runner/GeneratedPluginRegistrant.*
 
-# Symbolication related
-app.*.symbols
+# Android
+**/android/app/src/main/res/mipmap*/
+android/.gradle/
+android/captures/
+android/gradlew
+android/gradlew.bat
+android/local.properties
+android/**/GeneratedPluginRegistrant.java
+android/**/GeneratedPluginRegistrant.kt
 
-# Obfuscation related
-app.*.map.json
+# Firebase configuration files
+**/android/app/src/*/google-services.json
+**/android/app/google-services.json
+**/ios/Runner/GoogleService-Info.plist
+**/ios/Runner/GoogleService-Info-*.plist
+**/ios/Runner/Firebase
 
-# Android Studio will place build artifacts here
-/android/app/debug
-/android/app/profile
-/android/app/release
+# Sentry
+sentry.properties
 
-# Environment files
-env/*.env
+# Environment Variables
+*.env
+
+# Keystore & Certificates
+*.jks
+*.keystore
+*.p12
+*.key
+
+# Coverage
+coverage/
+*.lcov
+
+# Exceptions to above rules
+!/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages

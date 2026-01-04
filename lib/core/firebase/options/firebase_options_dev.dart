@@ -46,6 +46,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: String.fromEnvironment('firebaseMessagingSenderId'),
     projectId: 'dev-cat-food-reviews',
     storageBucket: 'dev-cat-food-reviews.firebasestorage.app',
+    androidClientId: String.fromEnvironment('firebaseAndroidClientId'),
   );
 
   static const FirebaseOptions _ios = FirebaseOptions(

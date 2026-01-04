@@ -46,6 +46,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: String.fromEnvironment('firebaseMessagingSenderId'),
     projectId: 'prod-cat-food-reviews',
     storageBucket: 'prod-cat-food-reviews.firebasestorage.app',
+    androidClientId: String.fromEnvironment('firebaseAndroidClientId'),
   );
 
   static const FirebaseOptions _ios = FirebaseOptions(
@@ -54,6 +55,6 @@ class DefaultFirebaseOptions {
     messagingSenderId: String.fromEnvironment('firebaseMessagingSenderId'),
     projectId: 'prod-cat-food-reviews',
     storageBucket: 'prod-cat-food-reviews.firebasestorage.app',
-    iosBundleId: 'com.example.catFoodReviews',
+    iosBundleId: 'com.hanyu.catfoodreviews',
   );
 }

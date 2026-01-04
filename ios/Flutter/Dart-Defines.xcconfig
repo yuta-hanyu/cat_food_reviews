@@ -1,3 +1,3 @@
-APP_NAME=開発版
-APP_ID=com.example.catFoodReviews.dev
-PRODUCT_BUNDLE_IDENTIFIER=com.example.catFoodReviews.dev
+APP_NAME=猫フードレビューアプリ
+APP_ID=com.hanyu.catfoodreviews
+PRODUCT_BUNDLE_IDENTIFIER=com.hanyu.catfoodreviews

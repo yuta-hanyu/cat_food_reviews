@@ -41,9 +41,9 @@ OUTPUT_FILE="${SRCROOT}/Flutter/Dart-Defines.xcconfig"
 : > "$OUTPUT_FILE"
 
 # DART_DEFINESが設定されていない場合に使用されるデフォルト値。
-APP_NAME="猫フードレビューアプリ（開発版）"
-APP_ID="com.example.catFoodReviews.dev"
-FLAVOR="dev"
+APP_NAME="猫フードレビューアプリ"
+APP_ID="com.hanyu.catfoodreviews"
+FLAVOR="prod"
 
 # `DART_DEFINES` が設定されている場合、その内容をパースして `APP_NAME` と `APP_ID` に代入する。
 # 設定されていない場合は、デフォルト値を使用する。
