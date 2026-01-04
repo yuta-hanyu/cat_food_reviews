@@ -53,16 +53,16 @@ class DefaultFirebaseOptions {
     apiKey: const String.fromEnvironment('firebaseApiKey'),
     appId: const String.fromEnvironment('firebaseAppId'),
     messagingSenderId: const String.fromEnvironment('firebaseMessagingSenderId'),
-    projectId: 'cat-food-reviews-${const String.fromEnvironment('flavor', defaultValue: 'dev')}',
-    storageBucket: 'cat-food-reviews-${const String.fromEnvironment('flavor', defaultValue: 'dev')}.firebasestorage.app',
+    projectId: 'cat-food-reviews-dev',
+    storageBucket: 'cat-food-reviews-dev.firebasestorage.app',
   );
 
   static FirebaseOptions get ios => FirebaseOptions(
     apiKey: const String.fromEnvironment('firebaseApiKey'),
     appId: const String.fromEnvironment('firebaseAppId'),
     messagingSenderId: const String.fromEnvironment('firebaseMessagingSenderId'),
-    projectId: 'cat-food-reviews-${const String.fromEnvironment('flavor', defaultValue: 'dev')}',
-    storageBucket: 'cat-food-reviews-${const String.fromEnvironment('flavor', defaultValue: 'dev')}.firebasestorage.app',
+    projectId: 'cat-food-reviews-dev',
+    storageBucket: 'cat-food-reviews-dev.firebasestorage.app',
     iosBundleId: const String.fromEnvironment('appId', defaultValue: 'com.example.catFoodReviews.dev'),
   );
 }
