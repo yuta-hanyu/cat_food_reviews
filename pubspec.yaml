@@ -8,6 +8,7 @@ environment:
   sdk: ^3.9.2
 
 dependencies:
+  sentry_flutter: ^9.9.1
   async: ^2.13.0
   clock: ^1.1.2
   collection: ^1.19.1
@@ -47,6 +48,7 @@ dependencies:
   uuid: ^4.5.2
 
 dev_dependencies:
+  sentry_dart_plugin: ^3.2.0
   build_runner: ^2.7.1
   custom_lint: any
   drift_dev: ^2.29.0
@@ -75,3 +77,9 @@ flutter_gen:
   integrations:
     flutter_svg: true
 
+
+sentry:
+  upload_debug_symbols: true
+  upload_source_maps: true
+  project: flutter
+  org: 7ded66c71e1b
