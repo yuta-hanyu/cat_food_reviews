@@ -55,6 +55,6 @@ class DefaultFirebaseOptions {
     messagingSenderId: String.fromEnvironment('firebaseMessagingSenderId'),
     projectId: 'dev-cat-food-reviews',
     storageBucket: 'dev-cat-food-reviews.firebasestorage.app',
-    iosBundleId: 'com.example.catFoodReviews.dev',
+    iosBundleId: 'com.example.catFoodReviews',
   );
 }

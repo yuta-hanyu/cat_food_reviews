@@ -15,7 +15,7 @@
 #
 # 1. Dart-Defines.xcconfigを生成
 #    - APP_NAME: アプリ名（例："開発版", "猫フードレビューアプリ"）
-#    - APP_ID: Bundle ID（例：com.example.catFoodReviews.dev）
+#    - APP_ID: Bundle ID（例：com.example.catFoodReviews）
 #    - PRODUCT_BUNDLE_IDENTIFIER: XcodeのBundle ID設定
 #
 # 2. Firebaseの設定ファイル（GoogleService-Info.plist）を環境に応じて切り替え
