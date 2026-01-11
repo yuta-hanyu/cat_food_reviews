@@ -1,0 +1,40 @@
+# QAビルド配信用のワークフロー
+name: "Distribute QA build"
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  prepare:
+    runs-on: "ubuntu-latest"
+    outputs:
+      release_notes: ${{ steps.get-commit-message.outputs.message }}
+    steps:
+      - uses: "actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493"
+      # リリースノートに載せるためのコミットメッセージを取得する。
+      # コミットメッセージが長い場合は、最初の20行のみを使用する。
+      - name: "get latest commit message"
+        id: "get-commit-message"
+        run: |
+          COMMIT_MESSAGE=$(git log -1 --pretty=%B | head -n 20)
+          echo "message<<EOF" >> $GITHUB_OUTPUT
+          echo "$COMMIT_MESSAGE" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+  # ビルド配信に必要なパラメータをワークフローに渡し、配信を実行
+  call-distribute:
+    needs: "prepare"
+    uses: "./.github/workflows/distribute_ios_build.yaml"
+    with:
+      environment: "dev"
+      distribution_groups: "testers"
+      release_notes: ${{ needs.prepare.outputs.release_notes }}
+    secrets:
+      ENV_FILE: ${{ secrets.ENV_DEV }}
+      GOOGLE_SERVICES_INFO: ${{ secrets.GOOGLE_SERVICES_INFO_DEV }}
+      FIREBASE_SERVICE_CREDENTIAL: ${{ secrets.FIREBASE_SERVICE_CREDENTIAL_DEV }}
+      APP_STORE_CONNECT_DISTRIBUTION_AUTH_KEY: ${{ secrets.APP_STORE_CONNECT_DISTRIBUTION_AUTH_KEY }}
+      APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+      APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+      APP_STORE_CONNECT_TEAM_ID: ${{ secrets.APP_STORE_CONNECT_TEAM_ID }}
