@@ -65,7 +65,7 @@ jobs:
       # バージョンはリポジトリのvariablesで管理している。
       - name: "use specific Xcode version"
         run: |
-          sudo xcode-select --switch /Applications/Xcode_15.4.app/Contents/Developer
+          sudo xcode-select --switch /Applications/Xcode_16.4.app/Contents/Developer
           xcodebuild -version
 
       # 環境別の.envファイルを配置する。
