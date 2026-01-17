@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cat_food_reviews/core/app_colors.dart';
 import 'package:cat_food_reviews/core/analytics/analytics_provider.dart';
-import 'package:cat_food_reviews/models/app_feature.dart';
-import 'package:cat_food_reviews/view_models/onboarding_view_model.dart';
+import 'package:cat_food_reviews/ui/onboarding/model/feature.dart';
+import 'package:cat_food_reviews/ui/onboarding/onboarding_view_model.dart';
 import 'package:cat_food_reviews/widgets/feature_card.dart';
 import 'package:cat_food_reviews/widgets/app_background.dart';
 
@@ -12,8 +12,8 @@ class OnboardingScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(onboardingViewModelProvider);
-    final viewModel = ref.read(onboardingViewModelProvider.notifier);
+    final viewModel = ref.watch(onboardingViewModelProvider);
+    final state = viewModel.state;
     final analytics = ref.read(analyticsProvider);
 
     // 画面表示イベントを送信

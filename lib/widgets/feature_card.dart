@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cat_food_reviews/models/app_feature.dart';
+import 'package:cat_food_reviews/ui/onboarding/model/feature.dart';
 
 class FeatureCard extends StatelessWidget {
   const FeatureCard({super.key, required this.feature});

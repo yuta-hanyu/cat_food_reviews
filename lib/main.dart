@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cat_food_reviews/core/app_theme.dart';
-import 'package:cat_food_reviews/views/onboarding_screen.dart';
+import 'package:cat_food_reviews/ui/onboarding/onboarding_screen.dart';
 import 'package:cat_food_reviews/core/firebase/firebase_initializer.dart';
 import 'package:cat_food_reviews/core/sentry/sentry_initializer.dart';
 

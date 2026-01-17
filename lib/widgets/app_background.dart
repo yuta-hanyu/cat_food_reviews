@@ -1,22 +1,20 @@
 import 'package:flutter/material.dart';
-import '../core/app_colors.dart';
+import 'package:cat_food_reviews/core/app_colors.dart';
 
 class AppBackground extends StatelessWidget {
-  final Widget child;
-  final bool addPetDecorations;
-
   const AppBackground({
     super.key,
     required this.child,
     this.addPetDecorations = true,
   });
 
+  final Widget child;
+  final bool addPetDecorations;
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        gradient: AppColors.backgroundGradient,
-      ),
+      decoration: const BoxDecoration(gradient: AppColors.backgroundGradient),
       child: Stack(
         children: [
           // 装飾的な肉球アイコン（HTMLと同じ位置）
@@ -29,7 +27,7 @@ class AppBackground extends StatelessWidget {
                 child: Icon(
                   Icons.pets,
                   size: 120,
-                  color: Colors.pink.withOpacity(0.1),
+                  color: Colors.pink.withValues(alpha: 0.1),
                 ),
               ),
             ),
@@ -41,7 +39,7 @@ class AppBackground extends StatelessWidget {
                 child: Icon(
                   Icons.pets,
                   size: 120,
-                  color: Colors.yellow.withOpacity(0.15),
+                  color: Colors.yellow.withValues(alpha: 0.15),
                 ),
               ),
             ),
