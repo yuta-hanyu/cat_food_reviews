@@ -50,7 +50,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get startButton => 'はじめる';
 
   @override
-  String get bottomNavigationScan => 'スキャン';
+  String get bottomNavigationUpload => 'アップロード';
 
   @override
   String get bottomNavigationHistory => 'りれき';

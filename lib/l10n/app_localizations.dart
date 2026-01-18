@@ -172,11 +172,11 @@ abstract class AppLocalizations {
   /// **'はじめる'**
   String get startButton;
 
-  /// No description provided for @bottomNavigationScan.
+  /// No description provided for @bottomNavigationUpload.
   ///
   /// In ja, this message translates to:
-  /// **'スキャン'**
-  String get bottomNavigationScan;
+  /// **'アップロード'**
+  String get bottomNavigationUpload;
 
   /// No description provided for @bottomNavigationHistory.
   ///

@@ -13,7 +13,7 @@
     "carouselDescriptionMain": "成分表を撮影するだけでOK二ャ。\n大切な僕らのために、安全性と\n栄養バランスをAIが判定するする二ャ。",
     "carouselDescriptionDisclaimer": "AIが成分を分析してサポートしますが、\n最終的な判断は飼い主様ご自身で行ってください二ャ。\n心配な点は獣医師にご相談をお願いしたいする二ャ。",
     "startButton": "はじめる",
-    "bottomNavigationScan": "スキャン",
+    "bottomNavigationUpload": "アップロード",
     "bottomNavigationHistory": "りれき",
     "bottomNavigationMyCat": "まい猫"
 }

@@ -11,6 +11,17 @@ class UploadScreen extends ConsumerStatefulWidget {
 class _UploadScreenState extends ConsumerState<UploadScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: Center(child: Text('Upload Screen')));
+    return const Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.camera_alt, size: 80, color: Colors.grey),
+            SizedBox(height: 16),
+            Text('アップロード', style: TextStyle(fontSize: 24)),
+          ],
+        ),
+      ),
+    );
   }
 }

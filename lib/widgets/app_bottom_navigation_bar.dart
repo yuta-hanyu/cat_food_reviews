@@ -24,7 +24,7 @@ class AppBottomNavigationBar extends StatelessWidget {
       items: [
         BottomNavigationBarItem(
           icon: const Icon(Icons.camera_alt),
-          label: l10n.bottomNavigationScan,
+          label: l10n.bottomNavigationUpload,
         ),
 
         BottomNavigationBarItem(
