@@ -10,7 +10,7 @@ class OnboardingNavigator {
   final GoRouter _goRouter;
 
   void toUpload() {
-    _goRouter.push(AppRoutes.upload);
+    _goRouter.go(AppRoutes.upload);
   }
 }
 
