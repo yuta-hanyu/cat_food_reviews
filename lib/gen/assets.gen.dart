@@ -14,12 +14,20 @@ import 'package:flutter/widgets.dart';
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/launcher_theme.png
+  AssetGenImage get launcherTheme =>
+      const AssetGenImage('assets/images/launcher_theme.png');
+
   /// File path: assets/images/main_theme.png
   AssetGenImage get mainTheme =>
       const AssetGenImage('assets/images/main_theme.png');
 
+  /// File path: assets/images/splash_theme.png
+  AssetGenImage get splashTheme =>
+      const AssetGenImage('assets/images/splash_theme.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [mainTheme];
+  List<AssetGenImage> get values => [launcherTheme, mainTheme, splashTheme];
 }
 
 class Assets {

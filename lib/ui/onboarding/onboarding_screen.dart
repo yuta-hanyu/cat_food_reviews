@@ -152,7 +152,9 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                 width: double.infinity,
                 height: 56,
                 child: ElevatedButton(
-                  onPressed: () => viewModel.goUpload,
+                  onPressed: () {
+                    viewModel.goUpload();
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.buttonPrimary,
                     foregroundColor: AppColors.white,

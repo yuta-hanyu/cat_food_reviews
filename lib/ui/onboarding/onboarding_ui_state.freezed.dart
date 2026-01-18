@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$OnboardingUiState {
 
- int get currentPageIndex; bool get isAnalyzing;
+ int get currentPageIndex;
 /// Create a copy of OnboardingUiState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +25,16 @@ $OnboardingUiStateCopyWith<OnboardingUiState> get copyWith => _$OnboardingUiStat
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is OnboardingUiState&&(identical(other.currentPageIndex, currentPageIndex) || other.currentPageIndex == currentPageIndex)&&(identical(other.isAnalyzing, isAnalyzing) || other.isAnalyzing == isAnalyzing));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is OnboardingUiState&&(identical(other.currentPageIndex, currentPageIndex) || other.currentPageIndex == currentPageIndex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,currentPageIndex,isAnalyzing);
+int get hashCode => Object.hash(runtimeType,currentPageIndex);
 
 @override
 String toString() {
-  return 'OnboardingUiState(currentPageIndex: $currentPageIndex, isAnalyzing: $isAnalyzing)';
+  return 'OnboardingUiState(currentPageIndex: $currentPageIndex)';
 }
 
 
@@ -45,7 +45,7 @@ abstract mixin class $OnboardingUiStateCopyWith<$Res>  {
   factory $OnboardingUiStateCopyWith(OnboardingUiState value, $Res Function(OnboardingUiState) _then) = _$OnboardingUiStateCopyWithImpl;
 @useResult
 $Res call({
- int currentPageIndex, bool isAnalyzing
+ int currentPageIndex
 });
 
 
@@ -62,11 +62,10 @@ class _$OnboardingUiStateCopyWithImpl<$Res>
 
 /// Create a copy of OnboardingUiState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? currentPageIndex = null,Object? isAnalyzing = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? currentPageIndex = null,}) {
   return _then(_self.copyWith(
 currentPageIndex: null == currentPageIndex ? _self.currentPageIndex : currentPageIndex // ignore: cast_nullable_to_non_nullable
-as int,isAnalyzing: null == isAnalyzing ? _self.isAnalyzing : isAnalyzing // ignore: cast_nullable_to_non_nullable
-as bool,
+as int,
   ));
 }
 
@@ -148,10 +147,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int currentPageIndex,  bool isAnalyzing)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int currentPageIndex)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _OnboardingUiState() when $default != null:
-return $default(_that.currentPageIndex,_that.isAnalyzing);case _:
+return $default(_that.currentPageIndex);case _:
   return orElse();
 
 }
@@ -169,10 +168,10 @@ return $default(_that.currentPageIndex,_that.isAnalyzing);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int currentPageIndex,  bool isAnalyzing)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int currentPageIndex)  $default,) {final _that = this;
 switch (_that) {
 case _OnboardingUiState():
-return $default(_that.currentPageIndex,_that.isAnalyzing);}
+return $default(_that.currentPageIndex);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -186,10 +185,10 @@ return $default(_that.currentPageIndex,_that.isAnalyzing);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int currentPageIndex,  bool isAnalyzing)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int currentPageIndex)?  $default,) {final _that = this;
 switch (_that) {
 case _OnboardingUiState() when $default != null:
-return $default(_that.currentPageIndex,_that.isAnalyzing);case _:
+return $default(_that.currentPageIndex);case _:
   return null;
 
 }
@@ -201,11 +200,10 @@ return $default(_that.currentPageIndex,_that.isAnalyzing);case _:
 
 
 class _OnboardingUiState implements OnboardingUiState {
-  const _OnboardingUiState({this.currentPageIndex = 0, this.isAnalyzing = false});
+  const _OnboardingUiState({this.currentPageIndex = 0});
   
 
 @override@JsonKey() final  int currentPageIndex;
-@override@JsonKey() final  bool isAnalyzing;
 
 /// Create a copy of OnboardingUiState
 /// with the given fields replaced by the non-null parameter values.
@@ -217,16 +215,16 @@ _$OnboardingUiStateCopyWith<_OnboardingUiState> get copyWith => __$OnboardingUiS
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OnboardingUiState&&(identical(other.currentPageIndex, currentPageIndex) || other.currentPageIndex == currentPageIndex)&&(identical(other.isAnalyzing, isAnalyzing) || other.isAnalyzing == isAnalyzing));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OnboardingUiState&&(identical(other.currentPageIndex, currentPageIndex) || other.currentPageIndex == currentPageIndex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,currentPageIndex,isAnalyzing);
+int get hashCode => Object.hash(runtimeType,currentPageIndex);
 
 @override
 String toString() {
-  return 'OnboardingUiState(currentPageIndex: $currentPageIndex, isAnalyzing: $isAnalyzing)';
+  return 'OnboardingUiState(currentPageIndex: $currentPageIndex)';
 }
 
 
@@ -237,7 +235,7 @@ abstract mixin class _$OnboardingUiStateCopyWith<$Res> implements $OnboardingUiS
   factory _$OnboardingUiStateCopyWith(_OnboardingUiState value, $Res Function(_OnboardingUiState) _then) = __$OnboardingUiStateCopyWithImpl;
 @override @useResult
 $Res call({
- int currentPageIndex, bool isAnalyzing
+ int currentPageIndex
 });
 
 
@@ -254,11 +252,10 @@ class __$OnboardingUiStateCopyWithImpl<$Res>
 
 /// Create a copy of OnboardingUiState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? currentPageIndex = null,Object? isAnalyzing = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? currentPageIndex = null,}) {
   return _then(_OnboardingUiState(
 currentPageIndex: null == currentPageIndex ? _self.currentPageIndex : currentPageIndex // ignore: cast_nullable_to_non_nullable
-as int,isAnalyzing: null == isAnalyzing ? _self.isAnalyzing : isAnalyzing // ignore: cast_nullable_to_non_nullable
-as bool,
+as int,
   ));
 }
 
