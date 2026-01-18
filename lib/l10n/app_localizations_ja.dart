@@ -12,10 +12,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get appTitle => 'ねこメシレビュー';
 
   @override
-  String get mainTitle => '愛猫の食事を';
+  String get mainTitle => 'AIがキャットフードの成分を見て';
 
   @override
-  String get mainSubtitle => '成分から安全チェック';
+  String get mainSubtitle => '採点する二ャ';
 
   @override
   String get aiAnalysisButton => 'AIで解析';
@@ -40,11 +40,11 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get carouselDescriptionMain =>
-      '成分表を撮影するだけでOK。\n大切なねこちゃんのために、安全性と\n栄養バランスをAIが判定します。';
+      '成分表を撮影するだけでOK二ャ。\n大切な僕らのために、安全性と\n栄養バランスをAIが判定するする二ャ。';
 
   @override
   String get carouselDescriptionDisclaimer =>
-      'AIが成分を分析してサポートしますが、\n最終的な判断は飼い主様ご自身で行ってください。\n心配な点は獣医師にご相談を。';
+      'AIが成分を分析してサポートしますが、\n最終的な判断は飼い主様ご自身で行ってください二ャ。\n心配な点は獣医師にご相談をお願いしたいする二ャ。';
 
   @override
   String get startButton => '始める';

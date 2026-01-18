@@ -103,13 +103,13 @@ abstract class AppLocalizations {
   /// No description provided for @mainTitle.
   ///
   /// In ja, this message translates to:
-  /// **'愛猫の食事を'**
+  /// **'AIがキャットフードの成分を見て'**
   String get mainTitle;
 
   /// No description provided for @mainSubtitle.
   ///
   /// In ja, this message translates to:
-  /// **'成分から安全チェック'**
+  /// **'採点する二ャ'**
   String get mainSubtitle;
 
   /// No description provided for @aiAnalysisButton.
@@ -157,13 +157,13 @@ abstract class AppLocalizations {
   /// No description provided for @carouselDescriptionMain.
   ///
   /// In ja, this message translates to:
-  /// **'成分表を撮影するだけでOK。\n大切なねこちゃんのために、安全性と\n栄養バランスをAIが判定します。'**
+  /// **'成分表を撮影するだけでOK二ャ。\n大切な僕らのために、安全性と\n栄養バランスをAIが判定するする二ャ。'**
   String get carouselDescriptionMain;
 
   /// No description provided for @carouselDescriptionDisclaimer.
   ///
   /// In ja, this message translates to:
-  /// **'AIが成分を分析してサポートしますが、\n最終的な判断は飼い主様ご自身で行ってください。\n心配な点は獣医師にご相談を。'**
+  /// **'AIが成分を分析してサポートしますが、\n最終的な判断は飼い主様ご自身で行ってください二ャ。\n心配な点は獣医師にご相談をお願いしたいする二ャ。'**
   String get carouselDescriptionDisclaimer;
 
   /// No description provided for @startButton.

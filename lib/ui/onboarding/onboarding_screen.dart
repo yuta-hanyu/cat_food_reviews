@@ -1,26 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cat_food_reviews/core/app_colors.dart';
-import 'package:cat_food_reviews/core/analytics/analytics_provider.dart';
 import 'package:cat_food_reviews/l10n/app_localizations.dart';
 import 'package:cat_food_reviews/ui/onboarding/component/feature.dart';
 import 'package:cat_food_reviews/ui/onboarding/onboarding_view_model.dart';
 import 'package:cat_food_reviews/ui/onboarding/component/feature_card.dart';
+import 'package:cat_food_reviews/widgets/app_title_widget.dart';
 
-class OnboardingScreen extends ConsumerWidget {
+class OnboardingScreen extends ConsumerStatefulWidget {
   const OnboardingScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final viewModel = ref.watch(onboardingViewModelProvider);
-    final state = viewModel.state;
-    final analytics = ref.read(analyticsProvider);
-    final l10n = AppLocalizations.of(context)!;
+  ConsumerState<OnboardingScreen> createState() => _OnboardingScreenState();
+}
 
-    // 画面表示イベントを送信
+class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
+  @override
+  void initState() {
+    super.initState();
+    // 画面表示イベントを一度だけ送信
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      viewModel.logScreenView();
+      ref.read(onboardingViewModelProvider.notifier).logScreenView();
     });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final state = ref.watch(onboardingViewModelProvider);
+    final viewModel = ref.read(onboardingViewModelProvider.notifier);
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -30,21 +38,13 @@ class OnboardingScreen extends ConsumerWidget {
             children: [
               // Title
               const SizedBox(height: 24),
-              Text(
-                l10n.appTitle,
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w300,
-                  letterSpacing: 2,
-                  color: AppColors.textSub,
-                ),
-              ),
+              const AppTitleWidget(),
 
-              const SizedBox(height: 32),
+              const SizedBox(height: 20),
 
               // Main card with cats
               Container(
-                height: MediaQuery.of(context).size.height * 0.4,
+                height: MediaQuery.of(context).size.height * 0.3,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(32),
@@ -52,68 +52,6 @@ class OnboardingScreen extends ConsumerWidget {
                     image: AssetImage('assets/images/main_theme.png'),
                     fit: BoxFit.cover,
                   ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.brown.withValues(alpha: 0.3),
-                      blurRadius: 20,
-                      offset: const Offset(0, 8),
-                    ),
-                  ],
-                ),
-                child: Stack(
-                  children: [
-                    // AI Analysis button
-                    Positioned(
-                      top: 24,
-                      right: 24,
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 8,
-                        ),
-                        decoration: BoxDecoration(
-                          color: AppColors.white,
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withValues(alpha: 0.1),
-                              blurRadius: 8,
-                              offset: const Offset(0, 2),
-                            ),
-                          ],
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            const Icon(
-                              Icons.auto_awesome,
-                              color: AppColors.featureAI,
-                              size: 16,
-                            ),
-                            const SizedBox(width: 4),
-                            Text(
-                              l10n.aiAnalysisButton,
-                              style: const TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-
-                    // Main theme image is now the background
-                    // Adding a subtle overlay for better text readability
-                    Positioned.fill(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(32),
-                          color: Colors.transparent,
-                        ),
-                      ),
-                    ),
-                  ],
                 ),
               ),
 
@@ -127,7 +65,7 @@ class OnboardingScreen extends ConsumerWidget {
                     style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: AppColors.textMain,
+                      color: AppColors.primary,
                     ),
                   ),
                   Text(
@@ -214,13 +152,7 @@ class OnboardingScreen extends ConsumerWidget {
                 width: double.infinity,
                 height: 56,
                 child: ElevatedButton(
-                  onPressed: state.isAnalyzing
-                      ? null
-                      : () async {
-                          await analytics.logEvent('onboarding_start_clicked');
-
-                          viewModel.startAnalysis();
-                        },
+                  onPressed: () => viewModel.goUpload,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.buttonPrimary,
                     foregroundColor: AppColors.white,
@@ -229,30 +161,22 @@ class OnboardingScreen extends ConsumerWidget {
                     ),
                     elevation: 0,
                   ),
-                  child: state.isAnalyzing
-                      ? const CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                            AppColors.white,
-                          ),
-                        )
-                      : Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              l10n.startButton,
-                              style: const TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            const SizedBox(width: 8),
-                            const Icon(Icons.arrow_forward_ios, size: 16),
-                          ],
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        l10n.startButton,
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
                         ),
+                      ),
+                      const SizedBox(width: 8),
+                      const Icon(Icons.arrow_forward_ios, size: 16),
+                    ],
+                  ),
                 ),
               ),
-
-              const SizedBox(height: 16),
             ],
           ),
         ),

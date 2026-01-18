@@ -1,8 +1,8 @@
 {
     "@@locale": "ja",
     "appTitle": "ねこメシレビュー",
-    "mainTitle": "愛猫の食事を",
-    "mainSubtitle": "成分から安全チェック",
+    "mainTitle": "AIがキャットフードの成分を見て",
+    "mainSubtitle": "採点する二ャ",
     "aiAnalysisButton": "AIで解析",
     "cameraFeatureTitle": "パシャリ",
     "cameraFeatureDescription": "成分表を撮影",
@@ -10,7 +10,7 @@
     "aiAnalysisDescription": "AIが成分を分析",
     "nutritionFeatureTitle": "採点",
     "nutritionFeatureDescription": "栄養バランスを採点",
-    "carouselDescriptionMain": "成分表を撮影するだけでOK。\n大切なねこちゃんのために、安全性と\n栄養バランスをAIが判定します。",
-    "carouselDescriptionDisclaimer": "AIが成分を分析してサポートしますが、\n最終的な判断は飼い主様ご自身で行ってください。\n心配な点は獣医師にご相談を。",
+    "carouselDescriptionMain": "成分表を撮影するだけでOK二ャ。\n大切な僕らのために、安全性と\n栄養バランスをAIが判定するする二ャ。",
+    "carouselDescriptionDisclaimer": "AIが成分を分析してサポートしますが、\n最終的な判断は飼い主様ご自身で行ってください二ャ。\n心配な点は獣医師にご相談をお願いしたいする二ャ。",
     "startButton": "始める"
 }
