@@ -15,7 +15,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get mainTitle => 'AIがキャットフードの成分を見て';
 
   @override
-  String get mainSubtitle => '採点する二ャ';
+  String get mainSubtitle => '採点する二ャ！';
 
   @override
   String get aiAnalysisButton => 'AIで解析';

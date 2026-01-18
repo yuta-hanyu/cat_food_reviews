@@ -54,6 +54,7 @@ dev_dependencies:
   flutter_gen_runner: ^5.12.0
   flutter_launcher_icons: ^0.14.4
   flutter_lints: ^6.0.0
+  flutter_native_splash: ^2.4.1
   flutter_test:
     sdk: flutter
   freezed: ^3.2.3
@@ -78,16 +79,41 @@ flutter_gen:
   integrations:
     flutter_svg: true
 
+# アプリアイコン生成設定
+# 生成コマンド: dart run flutter_launcher_icons
+# このコマンドにより、Android/iOSの各解像度用アイコンファイルが自動生成されます
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
   remove_alpha_ios: true
-  image_path: "assets/images/main_theme.png"
-  
+  image_path: "assets/images/launcher_theme.png"
+
   # Adaptive Icon設定（Android 8.0+用）
-  adaptive_icon_background: "#F7F6F2"  # クリーム色の背景
-  adaptive_icon_foreground: "assets/images/main_theme.png"  # 前景にメイン画像
+  adaptive_icon_background: "#F0EDE6"  # 濃いめのクリーム色の背景
+  adaptive_icon_foreground: "assets/images/launcher_theme.png"  # 前景にメイン画像
   min_sdk_android: 21
+
+# スプラッシュスクリーン生成設定
+# 生成コマンド: dart run flutter_native_splash:create
+# このコマンドにより、Android/iOS/Webのスプラッシュ画面ファイルが自動生成されます
+# 生成されるファイル: launch_background.xml, LaunchScreen.storyboard, index.html等
+flutter_native_splash:
+  # 背景色
+  color: "#F0EDE6"
+  # スプラッシュ画像
+  image: "assets/images/splash_theme.png"
+  # 画像サイズ設定（fill, contain, cover, fitWidth, fitHeight, scaleDown）
+  android_screen_orientation: portrait
+  # Android設定
+  android_gravity: center
+  android_12:
+    image: "assets/images/splash_theme.png"
+    color: "#F0EDE6"
+  # iOS設定
+  ios_content_mode: center
+  # Web設定
+  web: true
+  web_image_mode: center
 
 sentry:
   upload_debug_symbols: true

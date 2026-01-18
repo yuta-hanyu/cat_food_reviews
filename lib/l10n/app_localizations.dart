@@ -109,7 +109,7 @@ abstract class AppLocalizations {
   /// No description provided for @mainSubtitle.
   ///
   /// In ja, this message translates to:
-  /// **'採点する二ャ'**
+  /// **'採点する二ャ！'**
   String get mainSubtitle;
 
   /// No description provided for @aiAnalysisButton.
