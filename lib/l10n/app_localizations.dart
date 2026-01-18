@@ -169,7 +169,7 @@ abstract class AppLocalizations {
   /// No description provided for @startButton.
   ///
   /// In ja, this message translates to:
-  /// **'始める'**
+  /// **'はじめる'**
   String get startButton;
 }
 

@@ -47,5 +47,5 @@ class AppLocalizationsJa extends AppLocalizations {
       'AIが成分を分析してサポートしますが、\n最終的な判断は飼い主様ご自身で行ってください二ャ。\n心配な点は獣医師にご相談をお願いしたいする二ャ。';
 
   @override
-  String get startButton => '始める';
+  String get startButton => 'はじめる';
 }
