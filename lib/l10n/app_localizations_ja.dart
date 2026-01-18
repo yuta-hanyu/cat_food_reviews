@@ -48,4 +48,13 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get startButton => 'はじめる';
+
+  @override
+  String get bottomNavigationScan => 'スキャン';
+
+  @override
+  String get bottomNavigationHistory => 'りれき';
+
+  @override
+  String get bottomNavigationMyCat => 'まい猫';
 }

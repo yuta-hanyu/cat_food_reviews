@@ -31,7 +31,7 @@ class CatFoodReviewsApp extends ConsumerWidget {
       locale: const Locale('ja'),
       builder: (context, child) => Scaffold(
         backgroundColor: AppColors.backgroundLight,
-        body: AppBackground(child: SafeArea(child: child!)),
+        body: AppBackground(child: SafeArea(bottom: false, child: child!)),
       ),
       routerConfig: appRouter,
       debugShowCheckedModeBanner: false,

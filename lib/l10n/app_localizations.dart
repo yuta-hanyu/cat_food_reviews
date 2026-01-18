@@ -171,6 +171,24 @@ abstract class AppLocalizations {
   /// In ja, this message translates to:
   /// **'はじめる'**
   String get startButton;
+
+  /// No description provided for @bottomNavigationScan.
+  ///
+  /// In ja, this message translates to:
+  /// **'スキャン'**
+  String get bottomNavigationScan;
+
+  /// No description provided for @bottomNavigationHistory.
+  ///
+  /// In ja, this message translates to:
+  /// **'りれき'**
+  String get bottomNavigationHistory;
+
+  /// No description provided for @bottomNavigationMyCat.
+  ///
+  /// In ja, this message translates to:
+  /// **'まい猫'**
+  String get bottomNavigationMyCat;
 }
 
 class _AppLocalizationsDelegate
