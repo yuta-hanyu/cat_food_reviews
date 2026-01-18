@@ -52,6 +52,7 @@ dev_dependencies:
   custom_lint: any
   drift_dev: ^2.29.0
   flutter_gen_runner: ^5.12.0
+  flutter_launcher_icons: ^0.14.4
   flutter_lints: ^6.0.0
   flutter_test:
     sdk: flutter
@@ -77,6 +78,16 @@ flutter_gen:
   integrations:
     flutter_svg: true
 
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/images/main_theme.png"
+  
+  # Adaptive Icon設定（Android 8.0+用）
+  adaptive_icon_background: "#F7F6F2"  # クリーム色の背景
+  adaptive_icon_foreground: "assets/images/main_theme.png"  # 前景にメイン画像
+  min_sdk_android: 21
 
 sentry:
   upload_debug_symbols: true
