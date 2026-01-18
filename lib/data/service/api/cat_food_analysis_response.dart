@@ -1,4 +1,4 @@
-import 'package:cat_food_reviews/ui/onboarding/model/cat_food_analysis.dart';
+import 'package:cat_food_reviews/data/model/cat_food_analysis.dart';
 
 /// API レスポンス用のデータモデル
 class CatFoodAnalysisResponse {

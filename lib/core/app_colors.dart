@@ -16,9 +16,9 @@ class AppColors {
   static const Color white = Color(0xFFFFFFFF);
 
   // Feature colors
-  static const Color featurePhoto = Color(0xFFFF8A9B);
+  static const Color featureCamera = Color(0xFFFF8A9B);
   static const Color featureAI = Color(0xFF64B5F6);
-  static const Color featureSafe = Color(0xFF81C784);
+  static const Color featureSafety = Color(0xFF81C784);
 
   // Button colors
   static const Color buttonPrimary = Color(0xFFFF8FA3);

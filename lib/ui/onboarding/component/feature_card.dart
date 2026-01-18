@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:cat_food_reviews/ui/onboarding/model/feature.dart';
+import 'package:cat_food_reviews/ui/onboarding/component/feature.dart';
+import 'package:cat_food_reviews/l10n/app_localizations.dart';
 
 class FeatureCard extends StatelessWidget {
   const FeatureCard({super.key, required this.feature});
 
-  final AppFeature feature;
+  final Feature feature;
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Column(
       children: [
         Container(
@@ -21,7 +24,7 @@ class FeatureCard extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         Text(
-          feature.title,
+          feature.titleGetter(l10n),
           style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,
@@ -30,7 +33,7 @@ class FeatureCard extends StatelessWidget {
         ),
         const SizedBox(height: 4),
         Text(
-          feature.description,
+          feature.descriptionGetter(l10n),
           style: const TextStyle(fontSize: 12, color: Colors.black54),
           textAlign: TextAlign.center,
         ),

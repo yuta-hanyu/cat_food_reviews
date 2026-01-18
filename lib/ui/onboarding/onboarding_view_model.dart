@@ -1,7 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cat_food_reviews/data/service/api/cat_food_api_service.dart';
-import 'package:cat_food_reviews/ui/onboarding/model/cat_food_analysis.dart';
+import 'package:cat_food_reviews/data/model/cat_food_analysis.dart';
+import 'package:cat_food_reviews/core/analytics/analytics_provider.dart';
 
 class OnboardingViewModel extends ChangeNotifier {
   OnboardingViewModel(this._ref);
@@ -14,6 +15,12 @@ class OnboardingViewModel extends ChangeNotifier {
   void _updateState(OnboardingState newState) {
     _state = newState;
     notifyListeners();
+  }
+
+  /// 画面表示イベントを送信
+  void logScreenView() {
+    final analytics = _ref.read(analyticsProvider);
+    analytics.logScreenView('onboarding');
   }
 
   /// 分析を開始する
@@ -76,6 +83,11 @@ class OnboardingViewModel extends ChangeNotifier {
   void clearError() {
     _updateState(_state.copyWith(error: null));
   }
+
+  /// ページを変更する
+  void changePage(int index) {
+    _updateState(_state.copyWith(currentPageIndex: index));
+  }
 }
 
 final onboardingViewModelProvider = Provider<OnboardingViewModel>(
@@ -89,6 +101,7 @@ class OnboardingState {
     this.lastAnalysis,
     this.analysisHistory = const [],
     this.error,
+    this.currentPageIndex = 0,
   });
 
   final bool isAnalyzing;
@@ -96,6 +109,7 @@ class OnboardingState {
   final CatFoodAnalysis? lastAnalysis;
   final List<CatFoodAnalysis> analysisHistory;
   final String? error;
+  final int currentPageIndex;
 
   /// エラーがあるかどうか
   bool get hasError => error != null;
@@ -112,6 +126,7 @@ class OnboardingState {
     CatFoodAnalysis? lastAnalysis,
     List<CatFoodAnalysis>? analysisHistory,
     String? error,
+    int? currentPageIndex,
   }) {
     return OnboardingState(
       isAnalyzing: isAnalyzing ?? this.isAnalyzing,
@@ -119,6 +134,7 @@ class OnboardingState {
       lastAnalysis: lastAnalysis ?? this.lastAnalysis,
       analysisHistory: analysisHistory ?? this.analysisHistory,
       error: error,
+      currentPageIndex: currentPageIndex ?? this.currentPageIndex,
     );
   }
 }

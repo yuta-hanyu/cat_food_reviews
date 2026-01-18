@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cat_food_reviews/data/service/api/cat_food_api_service.dart';
-import 'package:cat_food_reviews/ui/onboarding/model/cat_food_analysis.dart';
+import 'package:cat_food_reviews/data/model/cat_food_analysis.dart';
 
 /// キャットフードデータのリポジトリ
 ///

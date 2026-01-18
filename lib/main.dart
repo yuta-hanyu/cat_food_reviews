@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:cat_food_reviews/l10n/app_localizations.dart';
 import 'package:cat_food_reviews/core/app_theme.dart';
+import 'package:cat_food_reviews/core/app_colors.dart';
+import 'package:cat_food_reviews/widgets/app_background.dart';
 import 'package:cat_food_reviews/ui/onboarding/onboarding_screen.dart';
 import 'package:cat_food_reviews/core/firebase/firebase_initializer.dart';
 import 'package:cat_food_reviews/core/sentry/sentry_initializer.dart';
@@ -21,8 +24,15 @@ class CatFoodReviewsApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Cat Food Reviews',
+      title: const String.fromEnvironment('appName', defaultValue: 'ねこメシレビュー'),
       theme: AppTheme.lightTheme,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      locale: const Locale('ja'),
+      builder: (context, child) => Scaffold(
+        backgroundColor: AppColors.backgroundLight,
+        body: AppBackground(child: SafeArea(child: child!)),
+      ),
       home: const OnboardingScreen(),
       debugShowCheckedModeBanner: false,
     );

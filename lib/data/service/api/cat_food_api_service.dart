@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cat_food_reviews/data/service/api/api_client.dart';
 import 'package:cat_food_reviews/data/service/api/cat_food_analysis_response.dart';
-import 'package:cat_food_reviews/ui/onboarding/model/cat_food_analysis.dart';
+import 'package:cat_food_reviews/data/model/cat_food_analysis.dart';
 
 /// キャットフード分析APIサービス
 final catFoodApiServiceProvider = Provider<CatFoodApiService>((ref) {
