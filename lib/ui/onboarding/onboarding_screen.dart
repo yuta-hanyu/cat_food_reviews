@@ -28,7 +28,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   Widget build(BuildContext context) {
     final state = ref.watch(onboardingViewModelProvider);
     final viewModel = ref.read(onboardingViewModelProvider.notifier);
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
 
     return Scaffold(
       body: SingleChildScrollView(

@@ -15,5 +15,7 @@
     "startButton": "はじめる",
     "bottomNavigationUpload": "アップロード",
     "bottomNavigationHistory": "りれき",
-    "bottomNavigationMyCat": "まい猫"
+    "bottomNavigationMyCat": "まい猫",
+    "uploadScreenTitle": "写真アップロード",
+    "uploadScreenButtonText": "アップロード"
 }

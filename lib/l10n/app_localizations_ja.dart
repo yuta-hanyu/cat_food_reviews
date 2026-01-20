@@ -57,4 +57,10 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get bottomNavigationMyCat => 'まい猫';
+
+  @override
+  String get uploadScreenTitle => '写真アップロード';
+
+  @override
+  String get uploadScreenButtonText => 'アップロード';
 }

@@ -1,3 +1,5 @@
+import 'package:cat_food_reviews/l10n/app_localizations.dart';
+import 'package:cat_food_reviews/widgets/app_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -11,8 +13,12 @@ class MyCatScreen extends ConsumerStatefulWidget {
 class _MyCatScreenState extends ConsumerState<MyCatScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
+    final l10n = AppLocalizations.of(context);
+
+    return Scaffold(
+      appBar: AppHeader(title: l10n.bottomNavigationMyCat, icon: Icons.pets),
+
+      body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

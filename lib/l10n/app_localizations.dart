@@ -66,8 +66,8 @@ abstract class AppLocalizations {
 
   final String localeName;
 
-  static AppLocalizations? of(BuildContext context) {
-    return Localizations.of<AppLocalizations>(context, AppLocalizations);
+  static AppLocalizations of(BuildContext context) {
+    return Localizations.of<AppLocalizations>(context, AppLocalizations)!;
   }
 
   static const LocalizationsDelegate<AppLocalizations> delegate =
@@ -189,6 +189,18 @@ abstract class AppLocalizations {
   /// In ja, this message translates to:
   /// **'まい猫'**
   String get bottomNavigationMyCat;
+
+  /// No description provided for @uploadScreenTitle.
+  ///
+  /// In ja, this message translates to:
+  /// **'写真アップロード'**
+  String get uploadScreenTitle;
+
+  /// No description provided for @uploadScreenButtonText.
+  ///
+  /// In ja, this message translates to:
+  /// **'アップロード'**
+  String get uploadScreenButtonText;
 }
 
 class _AppLocalizationsDelegate
