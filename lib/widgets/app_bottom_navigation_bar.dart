@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:cat_food_reviews/core/app_colors.dart';
+import 'package:cat_food_reviews/widgets/token/color/semantic_color_token.dart';
 import 'package:cat_food_reviews/l10n/app_localizations.dart';
 
 class AppBottomNavigationBar extends StatelessWidget {
@@ -19,7 +19,7 @@ class AppBottomNavigationBar extends StatelessWidget {
         navigationShell.goBranch(index);
       },
       backgroundColor: Colors.white,
-      selectedItemColor: AppColors.primary,
+      selectedItemColor: SemanticColorToken.primary,
       unselectedItemColor: Colors.grey,
       items: [
         BottomNavigationBarItem(

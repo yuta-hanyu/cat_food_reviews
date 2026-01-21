@@ -63,4 +63,43 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get uploadScreenButtonText => 'アップロード';
+
+  @override
+  String get uploadScreenMainTitle => '成分表を見せてニャ！';
+
+  @override
+  String get uploadScreenDescription => 'キャットフードの裏面にある';
+
+  @override
+  String get uploadScreenIngredients => '成分表';
+
+  @override
+  String get uploadScreenInstructions => 'を撮影してね';
+
+  @override
+  String get uploadScreenSubtitle => '文字がくっきり見えると嬉しいなぁ';
+
+  @override
+  String get uploadCameraButton => 'カメラで撮影';
+
+  @override
+  String get uploadCameraSubtext => 'パシャリ！';
+
+  @override
+  String get uploadGalleryButton => 'アルバムから';
+
+  @override
+  String get uploadGallerySubtext => '選んでね';
+
+  @override
+  String get uploadPreviewTitle => 'プレビューエリア';
+
+  @override
+  String get uploadPreviewSubtitle => 'まだお写真がないよ';
+
+  @override
+  String get uploadTipTitle => 'ワンポイント：';
+
+  @override
+  String get uploadTipDescription => '光が反射しないように撮ると、AIが正確に読み取れるよ！';
 }

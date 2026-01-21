@@ -17,5 +17,18 @@
     "bottomNavigationHistory": "りれき",
     "bottomNavigationMyCat": "まい猫",
     "uploadScreenTitle": "写真アップロード",
-    "uploadScreenButtonText": "アップロード"
+    "uploadScreenButtonText": "アップロード",
+    "uploadScreenMainTitle": "成分表を見せてニャ！",
+    "uploadScreenDescription": "キャットフードの裏面にある",
+    "uploadScreenIngredients": "成分表",
+    "uploadScreenInstructions": "を撮影してね",
+    "uploadScreenSubtitle": "文字がくっきり見えると嬉しいなぁ",
+    "uploadCameraButton": "カメラで撮影",
+    "uploadCameraSubtext": "パシャリ！",
+    "uploadGalleryButton": "アルバムから",
+    "uploadGallerySubtext": "選んでね",
+    "uploadPreviewTitle": "プレビューエリア",
+    "uploadPreviewSubtitle": "まだお写真がないよ",
+    "uploadTipTitle": "ワンポイント：",
+    "uploadTipDescription": "光が反射しないように撮ると、AIが正確に読み取れるよ！"
 }

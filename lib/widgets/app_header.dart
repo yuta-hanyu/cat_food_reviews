@@ -1,4 +1,5 @@
-import 'package:cat_food_reviews/core/app_colors.dart';
+import 'package:cat_food_reviews/widgets/token/color/semantic_color_token.dart';
+import 'package:cat_food_reviews/widgets/text/text_xl_bold.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -19,6 +20,9 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
     final bool showBackButton = onBackPressed != null || context.canPop();
 
     return AppBar(
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      surfaceTintColor: Colors.transparent,
       leading: showBackButton
           ? IconButton(
               icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
@@ -29,18 +33,10 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           if (icon != null) ...[
-            Icon(icon!, color: AppColors.primary, size: 28),
+            Icon(icon!, color: SemanticColorToken.primary, size: 28),
             const SizedBox(width: 8),
           ],
-          Text(
-            title,
-            style: const TextStyle(
-              color: Colors.black,
-              fontSize: 24,
-              fontWeight: FontWeight.w900,
-              letterSpacing: 0.8,
-            ),
-          ),
+          TextXLBold(content: title, color: Colors.black),
         ],
       ),
       centerTitle: true,

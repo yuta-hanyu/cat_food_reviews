@@ -201,6 +201,84 @@ abstract class AppLocalizations {
   /// In ja, this message translates to:
   /// **'アップロード'**
   String get uploadScreenButtonText;
+
+  /// No description provided for @uploadScreenMainTitle.
+  ///
+  /// In ja, this message translates to:
+  /// **'成分表を見せてニャ！'**
+  String get uploadScreenMainTitle;
+
+  /// No description provided for @uploadScreenDescription.
+  ///
+  /// In ja, this message translates to:
+  /// **'キャットフードの裏面にある'**
+  String get uploadScreenDescription;
+
+  /// No description provided for @uploadScreenIngredients.
+  ///
+  /// In ja, this message translates to:
+  /// **'成分表'**
+  String get uploadScreenIngredients;
+
+  /// No description provided for @uploadScreenInstructions.
+  ///
+  /// In ja, this message translates to:
+  /// **'を撮影してね'**
+  String get uploadScreenInstructions;
+
+  /// No description provided for @uploadScreenSubtitle.
+  ///
+  /// In ja, this message translates to:
+  /// **'文字がくっきり見えると嬉しいなぁ'**
+  String get uploadScreenSubtitle;
+
+  /// No description provided for @uploadCameraButton.
+  ///
+  /// In ja, this message translates to:
+  /// **'カメラで撮影'**
+  String get uploadCameraButton;
+
+  /// No description provided for @uploadCameraSubtext.
+  ///
+  /// In ja, this message translates to:
+  /// **'パシャリ！'**
+  String get uploadCameraSubtext;
+
+  /// No description provided for @uploadGalleryButton.
+  ///
+  /// In ja, this message translates to:
+  /// **'アルバムから'**
+  String get uploadGalleryButton;
+
+  /// No description provided for @uploadGallerySubtext.
+  ///
+  /// In ja, this message translates to:
+  /// **'選んでね'**
+  String get uploadGallerySubtext;
+
+  /// No description provided for @uploadPreviewTitle.
+  ///
+  /// In ja, this message translates to:
+  /// **'プレビューエリア'**
+  String get uploadPreviewTitle;
+
+  /// No description provided for @uploadPreviewSubtitle.
+  ///
+  /// In ja, this message translates to:
+  /// **'まだお写真がないよ'**
+  String get uploadPreviewSubtitle;
+
+  /// No description provided for @uploadTipTitle.
+  ///
+  /// In ja, this message translates to:
+  /// **'ワンポイント：'**
+  String get uploadTipTitle;
+
+  /// No description provided for @uploadTipDescription.
+  ///
+  /// In ja, this message translates to:
+  /// **'光が反射しないように撮ると、AIが正確に読み取れるよ！'**
+  String get uploadTipDescription;
 }
 
 class _AppLocalizationsDelegate

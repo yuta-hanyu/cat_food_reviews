@@ -1,11 +1,14 @@
+import 'package:cat_food_reviews/widgets/text/text_s.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:cat_food_reviews/core/app_colors.dart';
+import 'package:cat_food_reviews/widgets/token/color/semantic_color_token.dart';
 import 'package:cat_food_reviews/l10n/app_localizations.dart';
 import 'package:cat_food_reviews/ui/onboarding/component/feature.dart';
 import 'package:cat_food_reviews/ui/onboarding/onboarding_view_model.dart';
 import 'package:cat_food_reviews/ui/onboarding/component/feature_card.dart';
 import 'package:cat_food_reviews/widgets/app_title_widget.dart';
+import 'package:cat_food_reviews/widgets/headings/heading_medium.dart';
+import 'package:cat_food_reviews/widgets/buttons/primary_button.dart';
 
 class OnboardingScreen extends ConsumerStatefulWidget {
   const OnboardingScreen({super.key});
@@ -60,21 +63,13 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
               // Main title
               Column(
                 children: [
-                  Text(
-                    l10n.mainTitle,
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.primary,
-                    ),
+                  HeadingMedium(
+                    content: l10n.mainTitle,
+                    color: SemanticColorToken.primary,
                   ),
-                  Text(
-                    l10n.mainSubtitle,
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.primary,
-                    ),
+                  HeadingMedium(
+                    content: l10n.mainSubtitle,
+                    color: SemanticColorToken.primary,
                   ),
                 ],
               ),
@@ -101,23 +96,15 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                     viewModel.changePage(index);
                   },
                   children: [
-                    Text(
-                      l10n.carouselDescriptionMain,
+                    TextS(
+                      content: l10n.carouselDescriptionMain,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        fontSize: 14,
-                        height: 1.5,
-                        color: AppColors.textSub,
-                      ),
+                      color: SemanticColorToken.textSecondary,
                     ),
-                    Text(
-                      l10n.carouselDescriptionDisclaimer,
+                    TextS(
+                      content: l10n.carouselDescriptionDisclaimer,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        fontSize: 14,
-                        height: 1.5,
-                        color: AppColors.textSub,
-                      ),
+                      color: SemanticColorToken.textSecondary,
                     ),
                   ],
                 ),
@@ -132,14 +119,14 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                   CircleAvatar(
                     radius: state.currentPageIndex == 0 ? 4 : 3,
                     backgroundColor: state.currentPageIndex == 0
-                        ? AppColors.primary
+                        ? SemanticColorToken.primary
                         : Colors.grey.shade300,
                   ),
                   const SizedBox(width: 8),
                   CircleAvatar(
                     radius: state.currentPageIndex == 1 ? 4 : 3,
                     backgroundColor: state.currentPageIndex == 1
-                        ? AppColors.primary
+                        ? SemanticColorToken.primary
                         : Colors.grey.shade300,
                   ),
                 ],
@@ -148,36 +135,20 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
               const SizedBox(height: 16),
 
               // Start button
-              SizedBox(
-                width: double.infinity,
-                height: 56,
-                child: ElevatedButton(
-                  onPressed: () {
-                    viewModel.goUpload();
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.buttonPrimary,
-                    foregroundColor: AppColors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(28),
+              Stack(
+                children: [
+                  PrimaryButton(
+                    content: l10n.startButton,
+                    rightIcon: const Icon(
+                      Icons.arrow_forward_ios,
+                      size: 16,
+                      color: SemanticColorToken.backgroundWhite,
                     ),
-                    elevation: 0,
+                    onPressed: () {
+                      viewModel.goUpload();
+                    },
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        l10n.startButton,
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      const Icon(Icons.arrow_forward_ios, size: 16),
-                    ],
-                  ),
-                ),
+                ],
               ),
             ],
           ),

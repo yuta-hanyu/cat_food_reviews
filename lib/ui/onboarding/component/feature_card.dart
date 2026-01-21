@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:cat_food_reviews/ui/onboarding/component/feature.dart';
 import 'package:cat_food_reviews/l10n/app_localizations.dart';
+import 'package:cat_food_reviews/widgets/text/text_m_bold.dart';
+import 'package:cat_food_reviews/widgets/text/text_2xs.dart';
+import 'package:cat_food_reviews/widgets/token/color/semantic_color_token.dart';
 
 class FeatureCard extends StatelessWidget {
   const FeatureCard({super.key, required this.feature});
@@ -23,18 +26,14 @@ class FeatureCard extends StatelessWidget {
           child: Icon(feature.icon, color: feature.color, size: 32),
         ),
         const SizedBox(height: 8),
-        Text(
-          feature.titleGetter(l10n),
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-            color: Colors.black87,
-          ),
+        TextMBold(
+          content: feature.titleGetter(l10n),
+          color: SemanticColorToken.textDefault,
         ),
         const SizedBox(height: 4),
-        Text(
-          feature.descriptionGetter(l10n),
-          style: const TextStyle(fontSize: 12, color: Colors.black54),
+        Text2Xs(
+          content: feature.descriptionGetter(l10n),
+          color: SemanticColorToken.textSecondary,
           textAlign: TextAlign.center,
         ),
       ],

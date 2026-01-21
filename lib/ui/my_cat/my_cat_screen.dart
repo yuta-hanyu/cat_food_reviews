@@ -1,5 +1,6 @@
 import 'package:cat_food_reviews/l10n/app_localizations.dart';
 import 'package:cat_food_reviews/widgets/app_header.dart';
+import 'package:cat_food_reviews/widgets/headings/heading_large.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -24,7 +25,7 @@ class _MyCatScreenState extends ConsumerState<MyCatScreen> {
           children: [
             Icon(Icons.pets, size: 80, color: Colors.grey),
             SizedBox(height: 16),
-            Text('まい猫画面', style: TextStyle(fontSize: 24)),
+            HeadingLarge(content: 'まい猫画面'),
           ],
         ),
       ),

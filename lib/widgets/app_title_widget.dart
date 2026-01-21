@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
-import 'package:cat_food_reviews/core/app_colors.dart';
+import 'package:cat_food_reviews/widgets/token/color/semantic_color_token.dart';
+import 'package:cat_food_reviews/widgets/text/text_xl_bold.dart';
 
 class AppTitleWidget extends StatelessWidget {
   const AppTitleWidget({super.key});
@@ -17,11 +18,11 @@ class AppTitleWidget extends StatelessWidget {
             width: 45,
             height: 60,
             decoration: BoxDecoration(
-              color: AppColors.primary,
+              color: SemanticColorToken.primary,
               borderRadius: const BorderRadius.all(Radius.elliptical(28, 32)),
               boxShadow: [
                 BoxShadow(
-                  color: AppColors.primary.withValues(alpha: 0.3),
+                  color: SemanticColorToken.primary.withValues(alpha: 0.3),
                   blurRadius: 8,
                   offset: const Offset(0, 2),
                 ),
@@ -35,21 +36,9 @@ class AppTitleWidget extends StatelessWidget {
         ),
 
         const SizedBox(width: 16),
-        Text(
-          const String.fromEnvironment('appName', defaultValue: ''),
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.w900,
-            color: AppColors.textMain,
-            letterSpacing: 1,
-            shadows: [
-              Shadow(
-                color: AppColors.primary.withValues(alpha: 0.3),
-                offset: const Offset(2, 2),
-                blurRadius: 4,
-              ),
-            ],
-          ),
+        const TextXLBold(
+          content: String.fromEnvironment('appName', defaultValue: ''),
+          color: SemanticColorToken.textDefault,
         ),
       ],
     );

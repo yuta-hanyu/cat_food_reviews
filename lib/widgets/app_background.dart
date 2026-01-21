@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cat_food_reviews/core/app_colors.dart';
+import 'package:cat_food_reviews/widgets/token/color/semantic_color_token.dart';
 
 class AppBackground extends StatelessWidget {
   const AppBackground({
@@ -14,7 +14,9 @@ class AppBackground extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(gradient: AppColors.backgroundGradient),
+      decoration: const BoxDecoration(
+        gradient: SemanticColorToken.backgroundGradient,
+      ),
       child: Stack(
         children: [
           // 装飾的な肉球アイコン（HTMLと同じ位置）
