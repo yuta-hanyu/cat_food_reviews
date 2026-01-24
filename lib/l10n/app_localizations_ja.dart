@@ -102,4 +102,16 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get uploadTipDescription => '光が反射しないように撮ると、AIが正確に読み取れるよ！';
+
+  @override
+  String get close => '閉じる';
+
+  @override
+  String get imagePickedFromCamera => '写真を撮影しました！';
+
+  @override
+  String get imagePickedFromGallery => 'ギャラリーから写真を選択しました！';
+
+  @override
+  String get imagePickError => '画像の選択に失敗しました';
 }

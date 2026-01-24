@@ -7,6 +7,8 @@ import 'package:cat_food_reviews/ui/upload/component/upload_action_buttons.dart'
 import 'package:cat_food_reviews/ui/upload/component/upload_preview_area.dart';
 import 'package:cat_food_reviews/ui/upload/component/upload_tip_section.dart';
 import 'package:cat_food_reviews/ui/upload/upload_view_model.dart';
+import 'package:cat_food_reviews/ui/upload/upload_ui_state.dart';
+import 'package:cat_food_reviews/widgets/app_snack_bar.dart';
 
 class UploadScreen extends ConsumerStatefulWidget {
   const UploadScreen({super.key});
@@ -20,6 +22,25 @@ class _UploadScreenState extends ConsumerState<UploadScreen> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final viewModel = ref.read(uploadViewModelProvider.notifier);
+    final uploadState = ref.watch(uploadViewModelProvider);
+
+    // メッセージの監視とSnackBar表示
+    ref.listen(uploadViewModelProvider, (previous, next) {
+      final resultMessage = next.resultMessage;
+      if (resultMessage != null) {
+        switch (resultMessage.type) {
+          case MessageType.success:
+            final message = resultMessage.imageSource == ImageSourceType.camera
+                ? l10n.imagePickedFromCamera
+                : l10n.imagePickedFromGallery;
+            AppSnackBar.showSuccess(context, message);
+          case MessageType.error:
+            AppSnackBar.showError(context, l10n.imagePickError);
+        }
+        // メッセージをクリア
+        Future.microtask(() => viewModel.clearMessages());
+      }
+    });
 
     return Scaffold(
       appBar: AppHeader(title: l10n.uploadScreenTitle, icon: Icons.camera_alt),
@@ -34,13 +55,16 @@ class _UploadScreenState extends ConsumerState<UploadScreen> {
 
             // Camera and Gallery buttons
             UploadActionButtons(
-              onCameraTap: () => viewModel.onCameraButtonTapped(context),
-              onGalleryTap: () => viewModel.onGalleryButtonTapped(context),
+              onCameraTap: () => viewModel.onCameraButtonTapped(),
+              onGalleryTap: () => viewModel.onGalleryButtonTapped(),
             ),
             const SizedBox(height: 32),
 
             // Preview area
-            const UploadPreviewArea(),
+            UploadPreviewArea(
+              uploadState: uploadState,
+              onClearImage: () => viewModel.clearImage(),
+            ),
             const SizedBox(height: 24),
 
             // Tip section

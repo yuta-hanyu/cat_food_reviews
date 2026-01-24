@@ -279,6 +279,30 @@ abstract class AppLocalizations {
   /// In ja, this message translates to:
   /// **'光が反射しないように撮ると、AIが正確に読み取れるよ！'**
   String get uploadTipDescription;
+
+  /// No description provided for @close.
+  ///
+  /// In ja, this message translates to:
+  /// **'閉じる'**
+  String get close;
+
+  /// No description provided for @imagePickedFromCamera.
+  ///
+  /// In ja, this message translates to:
+  /// **'写真を撮影しました！'**
+  String get imagePickedFromCamera;
+
+  /// No description provided for @imagePickedFromGallery.
+  ///
+  /// In ja, this message translates to:
+  /// **'ギャラリーから写真を選択しました！'**
+  String get imagePickedFromGallery;
+
+  /// No description provided for @imagePickError.
+  ///
+  /// In ja, this message translates to:
+  /// **'画像の選択に失敗しました'**
+  String get imagePickError;
 }
 
 class _AppLocalizationsDelegate

@@ -47,5 +47,11 @@
 		<true/>
 		<key>UIStatusBarHidden</key>
 		<false/>
+		<!-- Camera permissions -->
+		<key>NSCameraUsageDescription</key>
+		<string>このアプリはキャットフードの成分を撮影するためにカメラを使用します</string>
+		<!-- Photo library permissions -->
+		<key>NSPhotoLibraryUsageDescription</key>
+		<string>このアプリはキャットフードの写真を選択するためにフォトライブラリにアクセスします</string>
 	</dict>
 </plist>

@@ -13,7 +13,7 @@ part of 'upload_view_model.dart';
 const uploadViewModelProvider = UploadViewModelProvider._();
 
 final class UploadViewModelProvider
-    extends $NotifierProvider<UploadViewModel, UploadState> {
+    extends $NotifierProvider<UploadViewModel, UploadUiState> {
   const UploadViewModelProvider._()
     : super(
         from: null,
@@ -33,28 +33,28 @@ final class UploadViewModelProvider
   UploadViewModel create() => UploadViewModel();
 
   /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(UploadState value) {
+  Override overrideWithValue(UploadUiState value) {
     return $ProviderOverride(
       origin: this,
-      providerOverride: $SyncValueProvider<UploadState>(value),
+      providerOverride: $SyncValueProvider<UploadUiState>(value),
     );
   }
 }
 
-String _$uploadViewModelHash() => r'b84e94ec1b26b0366682a27d1920373a6fab90e3';
+String _$uploadViewModelHash() => r'49995a8381d97ef61f6d91b33c698e1eb0a07fca';
 
-abstract class _$UploadViewModel extends $Notifier<UploadState> {
-  UploadState build();
+abstract class _$UploadViewModel extends $Notifier<UploadUiState> {
+  UploadUiState build();
   @$mustCallSuper
   @override
   void runBuild() {
     final created = build();
-    final ref = this.ref as $Ref<UploadState, UploadState>;
+    final ref = this.ref as $Ref<UploadUiState, UploadUiState>;
     final element =
         ref.element
             as $ClassProviderElement<
-              AnyNotifier<UploadState, UploadState>,
-              UploadState,
+              AnyNotifier<UploadUiState, UploadUiState>,
+              UploadUiState,
               Object?,
               Object?
             >;
