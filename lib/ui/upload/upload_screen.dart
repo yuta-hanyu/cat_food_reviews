@@ -10,6 +10,8 @@ import 'package:cat_food_reviews/ui/upload/upload_view_model.dart';
 import 'package:cat_food_reviews/ui/upload/upload_ui_state.dart';
 import 'package:cat_food_reviews/widgets/app_snack_bar.dart';
 import 'package:cat_food_reviews/widgets/app_full_screen_loading.dart';
+import 'package:cat_food_reviews/widgets/buttons/primary_button.dart';
+import 'package:cat_food_reviews/widgets/token/color/semantic_color_token.dart';
 
 class UploadScreen extends ConsumerStatefulWidget {
   const UploadScreen({super.key});
@@ -31,12 +33,22 @@ class _UploadScreenState extends ConsumerState<UploadScreen> {
       if (resultMessage != null) {
         switch (resultMessage.type) {
           case MessageType.success:
-            final message = resultMessage.imageSource == ImageSourceType.camera
-                ? l10n.imagePickedFromCamera
-                : l10n.imagePickedFromGallery;
-            AppSnackBar.showSuccess(context, message);
+            switch (resultMessage.actionType) {
+              case UploadActionType.imagePick:
+                final message = resultMessage.imageSource == ImageSourceType.camera
+                    ? l10n.imagePickedFromCamera
+                    : l10n.imagePickedFromGallery;
+                AppSnackBar.showSuccess(context, message);
+              case UploadActionType.analysis:
+                AppSnackBar.showSuccess(context, l10n.uploadSuccess);
+            }
           case MessageType.error:
-            AppSnackBar.showError(context, l10n.imagePickError);
+            switch (resultMessage.actionType) {
+              case UploadActionType.imagePick:
+                AppSnackBar.showError(context, l10n.imagePickError);
+              case UploadActionType.analysis:
+                AppSnackBar.showError(context, l10n.uploadError);
+            }
         }
         // メッセージをクリア
         Future.microtask(() => viewModel.clearMessages());
@@ -72,6 +84,19 @@ class _UploadScreenState extends ConsumerState<UploadScreen> {
 
                 // Tip section
                 const UploadTipSection(),
+                const SizedBox(height: 32),
+
+                // Upload button (only show when image is selected)
+                if (uiState.selectedImage != null)
+                  PrimaryButton(
+                    content: l10n.uploadButton,
+                    rightIcon: const Icon(
+                      Icons.arrow_forward_ios,
+                      size: 16,
+                      color: SemanticColorToken.backgroundWhite,
+                    ),
+                    onPressed: uiState.isLoading ? null : () => viewModel.uploadImage(),
+                  ),
               ],
             ),
           ),

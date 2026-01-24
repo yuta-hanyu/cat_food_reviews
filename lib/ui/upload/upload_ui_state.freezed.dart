@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ResultMessage {
 
- MessageType get type; ImageSourceType? get imageSource;
+ MessageType get type; UploadActionType get actionType; ImageSourceType? get imageSource;
 /// Create a copy of ResultMessage
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +25,16 @@ $ResultMessageCopyWith<ResultMessage> get copyWith => _$ResultMessageCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ResultMessage&&(identical(other.type, type) || other.type == type)&&(identical(other.imageSource, imageSource) || other.imageSource == imageSource));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ResultMessage&&(identical(other.type, type) || other.type == type)&&(identical(other.actionType, actionType) || other.actionType == actionType)&&(identical(other.imageSource, imageSource) || other.imageSource == imageSource));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,type,imageSource);
+int get hashCode => Object.hash(runtimeType,type,actionType,imageSource);
 
 @override
 String toString() {
-  return 'ResultMessage(type: $type, imageSource: $imageSource)';
+  return 'ResultMessage(type: $type, actionType: $actionType, imageSource: $imageSource)';
 }
 
 
@@ -45,7 +45,7 @@ abstract mixin class $ResultMessageCopyWith<$Res>  {
   factory $ResultMessageCopyWith(ResultMessage value, $Res Function(ResultMessage) _then) = _$ResultMessageCopyWithImpl;
 @useResult
 $Res call({
- MessageType type, ImageSourceType? imageSource
+ MessageType type, UploadActionType actionType, ImageSourceType? imageSource
 });
 
 
@@ -62,10 +62,11 @@ class _$ResultMessageCopyWithImpl<$Res>
 
 /// Create a copy of ResultMessage
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? imageSource = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? actionType = null,Object? imageSource = freezed,}) {
   return _then(_self.copyWith(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as MessageType,imageSource: freezed == imageSource ? _self.imageSource : imageSource // ignore: cast_nullable_to_non_nullable
+as MessageType,actionType: null == actionType ? _self.actionType : actionType // ignore: cast_nullable_to_non_nullable
+as UploadActionType,imageSource: freezed == imageSource ? _self.imageSource : imageSource // ignore: cast_nullable_to_non_nullable
 as ImageSourceType?,
   ));
 }
@@ -148,10 +149,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( MessageType type,  ImageSourceType? imageSource)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( MessageType type,  UploadActionType actionType,  ImageSourceType? imageSource)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ResultMessage() when $default != null:
-return $default(_that.type,_that.imageSource);case _:
+return $default(_that.type,_that.actionType,_that.imageSource);case _:
   return orElse();
 
 }
@@ -169,10 +170,10 @@ return $default(_that.type,_that.imageSource);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( MessageType type,  ImageSourceType? imageSource)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( MessageType type,  UploadActionType actionType,  ImageSourceType? imageSource)  $default,) {final _that = this;
 switch (_that) {
 case _ResultMessage():
-return $default(_that.type,_that.imageSource);}
+return $default(_that.type,_that.actionType,_that.imageSource);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -186,10 +187,10 @@ return $default(_that.type,_that.imageSource);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( MessageType type,  ImageSourceType? imageSource)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( MessageType type,  UploadActionType actionType,  ImageSourceType? imageSource)?  $default,) {final _that = this;
 switch (_that) {
 case _ResultMessage() when $default != null:
-return $default(_that.type,_that.imageSource);case _:
+return $default(_that.type,_that.actionType,_that.imageSource);case _:
   return null;
 
 }
@@ -201,10 +202,11 @@ return $default(_that.type,_that.imageSource);case _:
 
 
 class _ResultMessage implements ResultMessage {
-  const _ResultMessage({required this.type, this.imageSource});
+  const _ResultMessage({required this.type, required this.actionType, this.imageSource});
   
 
 @override final  MessageType type;
+@override final  UploadActionType actionType;
 @override final  ImageSourceType? imageSource;
 
 /// Create a copy of ResultMessage
@@ -217,16 +219,16 @@ _$ResultMessageCopyWith<_ResultMessage> get copyWith => __$ResultMessageCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ResultMessage&&(identical(other.type, type) || other.type == type)&&(identical(other.imageSource, imageSource) || other.imageSource == imageSource));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ResultMessage&&(identical(other.type, type) || other.type == type)&&(identical(other.actionType, actionType) || other.actionType == actionType)&&(identical(other.imageSource, imageSource) || other.imageSource == imageSource));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,type,imageSource);
+int get hashCode => Object.hash(runtimeType,type,actionType,imageSource);
 
 @override
 String toString() {
-  return 'ResultMessage(type: $type, imageSource: $imageSource)';
+  return 'ResultMessage(type: $type, actionType: $actionType, imageSource: $imageSource)';
 }
 
 
@@ -237,7 +239,7 @@ abstract mixin class _$ResultMessageCopyWith<$Res> implements $ResultMessageCopy
   factory _$ResultMessageCopyWith(_ResultMessage value, $Res Function(_ResultMessage) _then) = __$ResultMessageCopyWithImpl;
 @override @useResult
 $Res call({
- MessageType type, ImageSourceType? imageSource
+ MessageType type, UploadActionType actionType, ImageSourceType? imageSource
 });
 
 
@@ -254,10 +256,11 @@ class __$ResultMessageCopyWithImpl<$Res>
 
 /// Create a copy of ResultMessage
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? imageSource = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? actionType = null,Object? imageSource = freezed,}) {
   return _then(_ResultMessage(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as MessageType,imageSource: freezed == imageSource ? _self.imageSource : imageSource // ignore: cast_nullable_to_non_nullable
+as MessageType,actionType: null == actionType ? _self.actionType : actionType // ignore: cast_nullable_to_non_nullable
+as UploadActionType,imageSource: freezed == imageSource ? _self.imageSource : imageSource // ignore: cast_nullable_to_non_nullable
 as ImageSourceType?,
   ));
 }

@@ -7,10 +7,13 @@ enum MessageType { success, error }
 
 enum ImageSourceType { camera, gallery }
 
+enum UploadActionType { imagePick, analysis }
+
 @freezed
 sealed class ResultMessage with _$ResultMessage {
   const factory ResultMessage({
     required MessageType type,
+    required UploadActionType actionType,
     ImageSourceType? imageSource,
   }) = _ResultMessage;
 }

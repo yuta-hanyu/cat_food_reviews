@@ -313,7 +313,7 @@ abstract class AppLocalizations {
   /// No description provided for @uploadSuccess.
   ///
   /// In ja, this message translates to:
-  /// **'アップロードが完了しました！'**
+  /// **'分析をはじめます！'**
   String get uploadSuccess;
 
   /// No description provided for @uploadError.
