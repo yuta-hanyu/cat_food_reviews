@@ -303,6 +303,24 @@ abstract class AppLocalizations {
   /// In ja, this message translates to:
   /// **'画像の選択に失敗しました'**
   String get imagePickError;
+
+  /// No description provided for @uploadButton.
+  ///
+  /// In ja, this message translates to:
+  /// **'成分を分析する'**
+  String get uploadButton;
+
+  /// No description provided for @uploadSuccess.
+  ///
+  /// In ja, this message translates to:
+  /// **'アップロードが完了しました！'**
+  String get uploadSuccess;
+
+  /// No description provided for @uploadError.
+  ///
+  /// In ja, this message translates to:
+  /// **'アップロードに失敗しました'**
+  String get uploadError;
 }
 
 class _AppLocalizationsDelegate

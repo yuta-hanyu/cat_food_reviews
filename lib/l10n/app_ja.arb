@@ -34,5 +34,8 @@
     "close": "閉じる",
     "imagePickedFromCamera": "写真を撮影しました！",
     "imagePickedFromGallery": "ギャラリーから写真を選択しました！",
-    "imagePickError": "画像の選択に失敗しました"
+    "imagePickError": "画像の選択に失敗しました",
+    "uploadButton": "成分を分析する",
+    "uploadSuccess": "分析をはじめます！",
+    "uploadError": "アップロードに失敗しました"
 }

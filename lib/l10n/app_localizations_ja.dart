@@ -114,4 +114,13 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get imagePickError => '画像の選択に失敗しました';
+
+  @override
+  String get uploadButton => '成分を分析する';
+
+  @override
+  String get uploadSuccess => 'アップロードが完了しました！';
+
+  @override
+  String get uploadError => 'アップロードに失敗しました';
 }
