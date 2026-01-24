@@ -3,12 +3,14 @@ import 'package:image_picker/image_picker.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:cat_food_reviews/ui/upload/upload_ui_state.dart';
 import 'package:cat_food_reviews/core/logger/app_logger_provider.dart';
+import 'package:cat_food_reviews/data/repository/upload/upload_repository_provider.dart';
 
 part 'upload_view_model.g.dart';
 
 @riverpod
 class UploadViewModel extends _$UploadViewModel {
   late final _logger = ref.read(appLoggerProvider);
+  late final _uploadRepository = ref.read(uploadRepositoryProvider);
 
   @override
   UploadUiState build() => const UploadUiState();
@@ -44,6 +46,7 @@ class UploadViewModel extends _$UploadViewModel {
           isLoading: false,
           resultMessage: ResultMessage(
             type: MessageType.success,
+            actionType: UploadActionType.imagePick,
             imageSource: imageSourceType,
           ),
         );
@@ -60,7 +63,10 @@ class UploadViewModel extends _$UploadViewModel {
 
       state = state.copyWith(
         isLoading: false,
-        resultMessage: const ResultMessage(type: MessageType.error),
+        resultMessage: const ResultMessage(
+          type: MessageType.error,
+          actionType: UploadActionType.imagePick,
+        ),
       );
     }
   }
@@ -71,5 +77,52 @@ class UploadViewModel extends _$UploadViewModel {
 
   void clearMessages() {
     state = state.copyWith(resultMessage: null);
+  }
+
+  /// 選択された画像をサーバーにアップロード
+  Future<void> uploadImage() async {
+    final selectedImage = state.selectedImage;
+    if (selectedImage == null) {
+      state = state.copyWith(
+        resultMessage: const ResultMessage(
+          type: MessageType.error,
+          actionType: UploadActionType.analysis,
+        ),
+      );
+      return;
+    }
+
+    state = state.copyWith(isLoading: true);
+
+    final result = await _uploadRepository.uploadImage(selectedImage);
+
+    result.when(
+      success: (data) {
+        _logger.d(message: 'Upload successful: $data', tag: 'UploadViewModel');
+
+        state = state.copyWith(
+          isLoading: false,
+          resultMessage: const ResultMessage(
+            type: MessageType.success,
+            actionType: UploadActionType.analysis,
+          ),
+        );
+      },
+      failure: (error) {
+        _logger.e(
+          message: 'Image upload failed: $error',
+          tag: 'UploadViewModel',
+          error: error,
+        );
+
+        state = state.copyWith(
+          isLoading: false,
+          resultMessage: const ResultMessage(
+            type: MessageType.error,
+            actionType: UploadActionType.analysis,
+          ),
+        );
+      },
+    );
   }
 }
