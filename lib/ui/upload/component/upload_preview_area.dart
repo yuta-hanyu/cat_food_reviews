@@ -1,6 +1,6 @@
+import 'package:cat_food_reviews/widgets/token/color/semantic_color_token.dart';
 import 'package:flutter/material.dart';
 import 'package:cat_food_reviews/widgets/text/text_m_bold.dart';
-import 'package:cat_food_reviews/widgets/text/text_s.dart';
 import 'package:cat_food_reviews/l10n/app_localizations.dart';
 
 class UploadPreviewArea extends StatelessWidget {
@@ -12,20 +12,72 @@ class UploadPreviewArea extends StatelessWidget {
 
     return Container(
       width: double.infinity,
-      height: 200,
+      height: 240,
       decoration: BoxDecoration(
-        color: Colors.grey[100],
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.grey[300]!),
+        borderRadius: BorderRadius.circular(32),
+        gradient: const LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            Color(0xFFE8B4B8), // ライトピンク
+            Color(0xFFD4A5A0), // ピンクベージュ
+            Color(0xFFCDA196), // ベージュ
+          ],
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.pink.withValues(alpha: 0.2),
+            blurRadius: 16,
+            offset: const Offset(0, 8),
+          ),
+        ],
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      child: Stack(
         children: [
-          Icon(Icons.image_outlined, size: 64, color: Colors.grey[400]),
-          const SizedBox(height: 8),
-          TextMBold(content: l10n.uploadPreviewTitle, color: Colors.grey[600]),
-          const SizedBox(height: 4),
-          TextS(content: l10n.uploadPreviewSubtitle, color: Colors.grey[500]),
+          // Main content
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // White circle with pink camera icon
+                Container(
+                  width: 80,
+                  height: 80,
+                  decoration: BoxDecoration(
+                    color: SemanticColorToken.backgroundWhite,
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withValues(alpha: 0.1),
+                        blurRadius: 12,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                  child: Icon(
+                    Icons.camera_alt,
+                    size: 50,
+                    color: Colors.pink[200],
+                  ),
+                ),
+                const SizedBox(height: 24),
+                TextMBold(
+                  content: l10n.uploadPreviewTitle,
+                  color: SemanticColorToken.backgroundWhite,
+                ),
+              ],
+            ),
+          ),
+          // Paw print in top right corner
+          Positioned(
+            top: 20,
+            right: 24,
+            child: Icon(
+              Icons.pets,
+              size: 28,
+              color: Colors.white.withValues(alpha: 0.8),
+            ),
+          ),
         ],
       ),
     );
