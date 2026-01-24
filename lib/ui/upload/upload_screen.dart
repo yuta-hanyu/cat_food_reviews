@@ -35,7 +35,8 @@ class _UploadScreenState extends ConsumerState<UploadScreen> {
           case MessageType.success:
             switch (resultMessage.actionType) {
               case UploadActionType.imagePick:
-                final message = resultMessage.imageSource == ImageSourceType.camera
+                final message =
+                    resultMessage.imageSource == ImageSourceType.camera
                     ? l10n.imagePickedFromCamera
                     : l10n.imagePickedFromGallery;
                 AppSnackBar.showSuccess(context, message);
@@ -95,7 +96,9 @@ class _UploadScreenState extends ConsumerState<UploadScreen> {
                       size: 16,
                       color: SemanticColorToken.backgroundWhite,
                     ),
-                    onPressed: uiState.isLoading ? null : () => viewModel.uploadImage(),
+                    onPressed: uiState.isLoading
+                        ? null
+                        : () => viewModel.uploadImage(),
                   ),
               ],
             ),

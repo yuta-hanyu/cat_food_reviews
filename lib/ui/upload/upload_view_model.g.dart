@@ -41,7 +41,7 @@ final class UploadViewModelProvider
   }
 }
 
-String _$uploadViewModelHash() => r'e70eb5eb0658bc0bbc556e2b9f8f7b1903d4a951';
+String _$uploadViewModelHash() => r'7a5dfc669ec3338c05fff001ef024c9d94f1aa64';
 
 abstract class _$UploadViewModel extends $Notifier<UploadUiState> {
   UploadUiState build();
