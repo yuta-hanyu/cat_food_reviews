@@ -9,6 +9,7 @@ import 'package:cat_food_reviews/ui/upload/component/upload_tip_section.dart';
 import 'package:cat_food_reviews/ui/upload/upload_view_model.dart';
 import 'package:cat_food_reviews/ui/upload/upload_ui_state.dart';
 import 'package:cat_food_reviews/widgets/app_snack_bar.dart';
+import 'package:cat_food_reviews/widgets/app_full_screen_loading.dart';
 
 class UploadScreen extends ConsumerStatefulWidget {
   const UploadScreen({super.key});
@@ -22,7 +23,7 @@ class _UploadScreenState extends ConsumerState<UploadScreen> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final viewModel = ref.read(uploadViewModelProvider.notifier);
-    final uploadState = ref.watch(uploadViewModelProvider);
+    final uiState = ref.watch(uploadViewModelProvider);
 
     // メッセージの監視とSnackBar表示
     ref.listen(uploadViewModelProvider, (previous, next) {
@@ -44,33 +45,39 @@ class _UploadScreenState extends ConsumerState<UploadScreen> {
 
     return Scaffold(
       appBar: AppHeader(title: l10n.uploadScreenTitle, icon: Icons.camera_alt),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Main title with paw icon (centered layout)
-            const UploadHeaderCard(),
-            const SizedBox(height: 32),
+      body: Stack(
+        children: [
+          SingleChildScrollView(
+            padding: const EdgeInsets.all(24.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Main title with paw icon (centered layout)
+                const UploadHeaderCard(),
+                const SizedBox(height: 32),
 
-            // Camera and Gallery buttons
-            UploadActionButtons(
-              onCameraTap: () => viewModel.onCameraButtonTapped(),
-              onGalleryTap: () => viewModel.onGalleryButtonTapped(),
+                // Camera and Gallery buttons
+                UploadActionButtons(
+                  onCameraTap: () => viewModel.onCameraButtonTapped(),
+                  onGalleryTap: () => viewModel.onGalleryButtonTapped(),
+                ),
+                const SizedBox(height: 32),
+
+                // Preview area
+                UploadPreviewArea(
+                  uiState: uiState,
+                  onClearImage: () => viewModel.clearImage(),
+                ),
+                const SizedBox(height: 24),
+
+                // Tip section
+                const UploadTipSection(),
+              ],
             ),
-            const SizedBox(height: 32),
-
-            // Preview area
-            UploadPreviewArea(
-              uploadState: uploadState,
-              onClearImage: () => viewModel.clearImage(),
-            ),
-            const SizedBox(height: 24),
-
-            // Tip section
-            const UploadTipSection(),
-          ],
-        ),
+          ),
+          // フルスクリーンローディング
+          if (uiState.isLoading) const AppFullScreenLoading(),
+        ],
       ),
     );
   }

@@ -18,7 +18,7 @@ sealed class ResultMessage with _$ResultMessage {
 @freezed
 sealed class UploadUiState with _$UploadUiState {
   const factory UploadUiState({
-    @Default(false) bool isUploading,
+    @Default(false) bool isLoading,
     File? selectedImage,
     ResultMessage? resultMessage,
   }) = _UploadUiState;

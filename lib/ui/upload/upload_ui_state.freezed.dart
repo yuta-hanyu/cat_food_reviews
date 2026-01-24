@@ -268,7 +268,7 @@ as ImageSourceType?,
 /// @nodoc
 mixin _$UploadUiState {
 
- bool get isUploading; File? get selectedImage; ResultMessage? get resultMessage;
+ bool get isLoading; File? get selectedImage; ResultMessage? get resultMessage;
 /// Create a copy of UploadUiState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -279,16 +279,16 @@ $UploadUiStateCopyWith<UploadUiState> get copyWith => _$UploadUiStateCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UploadUiState&&(identical(other.isUploading, isUploading) || other.isUploading == isUploading)&&(identical(other.selectedImage, selectedImage) || other.selectedImage == selectedImage)&&(identical(other.resultMessage, resultMessage) || other.resultMessage == resultMessage));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UploadUiState&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.selectedImage, selectedImage) || other.selectedImage == selectedImage)&&(identical(other.resultMessage, resultMessage) || other.resultMessage == resultMessage));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,isUploading,selectedImage,resultMessage);
+int get hashCode => Object.hash(runtimeType,isLoading,selectedImage,resultMessage);
 
 @override
 String toString() {
-  return 'UploadUiState(isUploading: $isUploading, selectedImage: $selectedImage, resultMessage: $resultMessage)';
+  return 'UploadUiState(isLoading: $isLoading, selectedImage: $selectedImage, resultMessage: $resultMessage)';
 }
 
 
@@ -299,7 +299,7 @@ abstract mixin class $UploadUiStateCopyWith<$Res>  {
   factory $UploadUiStateCopyWith(UploadUiState value, $Res Function(UploadUiState) _then) = _$UploadUiStateCopyWithImpl;
 @useResult
 $Res call({
- bool isUploading, File? selectedImage, ResultMessage? resultMessage
+ bool isLoading, File? selectedImage, ResultMessage? resultMessage
 });
 
 
@@ -316,9 +316,9 @@ class _$UploadUiStateCopyWithImpl<$Res>
 
 /// Create a copy of UploadUiState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? isUploading = null,Object? selectedImage = freezed,Object? resultMessage = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? isLoading = null,Object? selectedImage = freezed,Object? resultMessage = freezed,}) {
   return _then(_self.copyWith(
-isUploading: null == isUploading ? _self.isUploading : isUploading // ignore: cast_nullable_to_non_nullable
+isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
 as bool,selectedImage: freezed == selectedImage ? _self.selectedImage : selectedImage // ignore: cast_nullable_to_non_nullable
 as File?,resultMessage: freezed == resultMessage ? _self.resultMessage : resultMessage // ignore: cast_nullable_to_non_nullable
 as ResultMessage?,
@@ -415,10 +415,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool isUploading,  File? selectedImage,  ResultMessage? resultMessage)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool isLoading,  File? selectedImage,  ResultMessage? resultMessage)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UploadUiState() when $default != null:
-return $default(_that.isUploading,_that.selectedImage,_that.resultMessage);case _:
+return $default(_that.isLoading,_that.selectedImage,_that.resultMessage);case _:
   return orElse();
 
 }
@@ -436,10 +436,10 @@ return $default(_that.isUploading,_that.selectedImage,_that.resultMessage);case 
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool isUploading,  File? selectedImage,  ResultMessage? resultMessage)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool isLoading,  File? selectedImage,  ResultMessage? resultMessage)  $default,) {final _that = this;
 switch (_that) {
 case _UploadUiState():
-return $default(_that.isUploading,_that.selectedImage,_that.resultMessage);}
+return $default(_that.isLoading,_that.selectedImage,_that.resultMessage);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -453,10 +453,10 @@ return $default(_that.isUploading,_that.selectedImage,_that.resultMessage);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool isUploading,  File? selectedImage,  ResultMessage? resultMessage)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool isLoading,  File? selectedImage,  ResultMessage? resultMessage)?  $default,) {final _that = this;
 switch (_that) {
 case _UploadUiState() when $default != null:
-return $default(_that.isUploading,_that.selectedImage,_that.resultMessage);case _:
+return $default(_that.isLoading,_that.selectedImage,_that.resultMessage);case _:
   return null;
 
 }
@@ -468,10 +468,10 @@ return $default(_that.isUploading,_that.selectedImage,_that.resultMessage);case 
 
 
 class _UploadUiState implements UploadUiState {
-  const _UploadUiState({this.isUploading = false, this.selectedImage, this.resultMessage});
+  const _UploadUiState({this.isLoading = false, this.selectedImage, this.resultMessage});
   
 
-@override@JsonKey() final  bool isUploading;
+@override@JsonKey() final  bool isLoading;
 @override final  File? selectedImage;
 @override final  ResultMessage? resultMessage;
 
@@ -485,16 +485,16 @@ _$UploadUiStateCopyWith<_UploadUiState> get copyWith => __$UploadUiStateCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UploadUiState&&(identical(other.isUploading, isUploading) || other.isUploading == isUploading)&&(identical(other.selectedImage, selectedImage) || other.selectedImage == selectedImage)&&(identical(other.resultMessage, resultMessage) || other.resultMessage == resultMessage));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UploadUiState&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.selectedImage, selectedImage) || other.selectedImage == selectedImage)&&(identical(other.resultMessage, resultMessage) || other.resultMessage == resultMessage));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,isUploading,selectedImage,resultMessage);
+int get hashCode => Object.hash(runtimeType,isLoading,selectedImage,resultMessage);
 
 @override
 String toString() {
-  return 'UploadUiState(isUploading: $isUploading, selectedImage: $selectedImage, resultMessage: $resultMessage)';
+  return 'UploadUiState(isLoading: $isLoading, selectedImage: $selectedImage, resultMessage: $resultMessage)';
 }
 
 
@@ -505,7 +505,7 @@ abstract mixin class _$UploadUiStateCopyWith<$Res> implements $UploadUiStateCopy
   factory _$UploadUiStateCopyWith(_UploadUiState value, $Res Function(_UploadUiState) _then) = __$UploadUiStateCopyWithImpl;
 @override @useResult
 $Res call({
- bool isUploading, File? selectedImage, ResultMessage? resultMessage
+ bool isLoading, File? selectedImage, ResultMessage? resultMessage
 });
 
 
@@ -522,9 +522,9 @@ class __$UploadUiStateCopyWithImpl<$Res>
 
 /// Create a copy of UploadUiState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? isUploading = null,Object? selectedImage = freezed,Object? resultMessage = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? isLoading = null,Object? selectedImage = freezed,Object? resultMessage = freezed,}) {
   return _then(_UploadUiState(
-isUploading: null == isUploading ? _self.isUploading : isUploading // ignore: cast_nullable_to_non_nullable
+isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
 as bool,selectedImage: freezed == selectedImage ? _self.selectedImage : selectedImage // ignore: cast_nullable_to_non_nullable
 as File?,resultMessage: freezed == resultMessage ? _self.resultMessage : resultMessage // ignore: cast_nullable_to_non_nullable
 as ResultMessage?,

@@ -23,7 +23,7 @@ class UploadViewModel extends _$UploadViewModel {
 
   Future<void> _pickImage(ImageSource source) async {
     try {
-      state = state.copyWith(isUploading: true);
+      state = state.copyWith(isLoading: true);
 
       final ImagePicker picker = ImagePicker();
       final XFile? image = await picker.pickImage(
@@ -41,14 +41,14 @@ class UploadViewModel extends _$UploadViewModel {
 
         state = state.copyWith(
           selectedImage: imageFile,
-          isUploading: false,
+          isLoading: false,
           resultMessage: ResultMessage(
             type: MessageType.success,
             imageSource: imageSourceType,
           ),
         );
       } else {
-        state = state.copyWith(isUploading: false);
+        state = state.copyWith(isLoading: false);
       }
     } catch (e, stackTrace) {
       _logger.e(
@@ -59,7 +59,7 @@ class UploadViewModel extends _$UploadViewModel {
       );
 
       state = state.copyWith(
-        isUploading: false,
+        isLoading: false,
         resultMessage: const ResultMessage(type: MessageType.error),
       );
     }
