@@ -1,117 +1,132 @@
 /// 画像アップロードレスポンスボディ
 class UploadImageResponseBody {
+
   factory UploadImageResponseBody.fromJson(Map<String, dynamic> json) =>
       UploadImageResponseBody(
-        analysisId: json['analysis_id'] as String,
-        status: json['status'] as String,
-        analysisResult: json['analysis_result'] != null
-            ? AnalysisResult.fromJson(
-                json['analysis_result'] as Map<String, dynamic>,
-              )
-            : null,
-        message: json['message'] as String,
+        overallScore: json['overall_score'] as int,
+        oneLiner: json['one_liner'] as String,
+        overallEvaluation: json['overall_evaluation'] as String,
+        goodPoints: (json['good_points'] as List<dynamic>)
+            .map((e) => e as String)
+            .toList(),
+        badPoints: (json['bad_points'] as List<dynamic>)
+            .map((e) => e as String)
+            .toList(),
+        nutrition: NutritionAnalysis.fromJson(
+          json['nutrition'] as Map<String, dynamic>,
+        ),
       );
+
   const UploadImageResponseBody({
-    required this.analysisId,
-    required this.status,
-    required this.analysisResult,
-    required this.message,
+    required this.overallScore,
+    required this.oneLiner,
+    required this.overallEvaluation,
+    required this.goodPoints,
+    required this.badPoints,
+    required this.nutrition,
   });
 
-  /// 分析結果ID
-  final String analysisId;
+  /// 総合スコア
+  final int overallScore;
 
-  /// 分析ステータス
-  final String status;
+  /// 一言コメント
+  final String oneLiner;
 
-  /// 分析結果データ
-  final AnalysisResult? analysisResult;
+  /// 総合評価
+  final String overallEvaluation;
 
-  /// メッセージ
-  final String message;
+  /// 良いポイント
+  final List<String> goodPoints;
+
+  /// 悪いポイント
+  final List<String> badPoints;
+
+  /// 栄養成分分析
+  final NutritionAnalysis nutrition;
 
   Map<String, dynamic> toJson() => {
-    'analysis_id': analysisId,
-    'status': status,
-    'analysis_result': analysisResult?.toJson(),
-    'message': message,
+    'overall_score': overallScore,
+    'one_liner': oneLiner,
+    'overall_evaluation': overallEvaluation,
+    'good_points': goodPoints,
+    'bad_points': badPoints,
+    'nutrition': nutrition.toJson(),
   };
 }
 
-/// 分析結果
-class AnalysisResult {
-  factory AnalysisResult.fromJson(Map<String, dynamic> json) => AnalysisResult(
-    score: (json['score'] as num).toDouble(),
-    ingredients: (json['ingredients'] as List<dynamic>)
-        .map((e) => Ingredient.fromJson(e as Map<String, dynamic>))
-        .toList(),
-    qualityRating: json['quality_rating'] as String,
-    recommendationLevel: json['recommendation_level'] as int,
-    comment: json['comment'] as String?,
+/// 栄養成分分析
+class NutritionAnalysis {
+
+  factory NutritionAnalysis.fromJson(Map<String, dynamic> json) => 
+      NutritionAnalysis(
+        protein: NutritionItem.fromJson(
+          json['protein'] as Map<String, dynamic>,
+        ),
+        fat: NutritionItem.fromJson(
+          json['fat'] as Map<String, dynamic>,
+        ),
+        fiber: NutritionItem.fromJson(
+          json['fiber'] as Map<String, dynamic>,
+        ),
+        carbohydrate: NutritionItem.fromJson(
+          json['carbohydrate'] as Map<String, dynamic>,
+        ),
+      );
+
+  const NutritionAnalysis({
+    required this.protein,
+    required this.fat,
+    required this.fiber,
+    required this.carbohydrate,
+  });
+
+  /// タンパク質
+  final NutritionItem protein;
+
+  /// 脂質
+  final NutritionItem fat;
+
+  /// 食物繊維
+  final NutritionItem fiber;
+
+  /// 炭水化物
+  final NutritionItem carbohydrate;
+
+  Map<String, dynamic> toJson() => {
+    'protein': protein.toJson(),
+    'fat': fat.toJson(),
+    'fiber': fiber.toJson(),
+    'carbohydrate': carbohydrate.toJson(),
+  };
+}
+
+/// 栄養素項目
+class NutritionItem {
+
+  factory NutritionItem.fromJson(Map<String, dynamic> json) => NutritionItem(
+    value: (json['value'] as num).toDouble(),
+    rating: json['rating'] as String,
+    comment: json['comment'] as String,
   );
-  const AnalysisResult({
-    required this.score,
-    required this.ingredients,
-    required this.qualityRating,
-    required this.recommendationLevel,
+
+  const NutritionItem({
+    required this.value,
+    required this.rating,
     required this.comment,
   });
 
-  /// 分析スコア
-  final double score;
+  /// 数値
+  final double value;
 
-  /// 検出された成分リスト
-  final List<Ingredient> ingredients;
-
-  /// 品質評価
-  final String qualityRating;
-
-  /// 推奨度
-  final int recommendationLevel;
+  /// 評価
+  final String rating;
 
   /// コメント
-  final String? comment;
+  final String comment;
 
   Map<String, dynamic> toJson() => {
-    'score': score,
-    'ingredients': ingredients.map((e) => e.toJson()).toList(),
-    'quality_rating': qualityRating,
-    'recommendation_level': recommendationLevel,
+    'value': value,
+    'rating': rating,
     'comment': comment,
-  };
-}
-
-/// 成分
-class Ingredient {
-  factory Ingredient.fromJson(Map<String, dynamic> json) => Ingredient(
-    name: json['name'] as String,
-    confidence: (json['confidence'] as num).toDouble(),
-    category: json['category'] as String,
-    healthImpact: json['health_impact'] as String,
-  );
-  const Ingredient({
-    required this.name,
-    required this.confidence,
-    required this.category,
-    required this.healthImpact,
-  });
-
-  /// 成分名
-  final String name;
-
-  /// 信頼度
-  final double confidence;
-
-  /// カテゴリー
-  final String category;
-
-  /// 健康への影響
-  final String healthImpact;
-
-  Map<String, dynamic> toJson() => {
-    'name': name,
-    'confidence': confidence,
-    'category': category,
-    'health_impact': healthImpact,
   };
 }
