@@ -1,6 +1,5 @@
 /// 画像アップロードレスポンスボディ
 class UploadImageResponseBody {
-
   factory UploadImageResponseBody.fromJson(Map<String, dynamic> json) =>
       UploadImageResponseBody(
         overallScore: json['overall_score'] as int,
@@ -12,7 +11,7 @@ class UploadImageResponseBody {
         badPoints: (json['bad_points'] as List<dynamic>)
             .map((e) => e as String)
             .toList(),
-        nutrition: NutritionAnalysis.fromJson(
+        nutrition: NutritionAnalysisDto.fromJson(
           json['nutrition'] as Map<String, dynamic>,
         ),
       );
@@ -42,7 +41,7 @@ class UploadImageResponseBody {
   final List<String> badPoints;
 
   /// 栄養成分分析
-  final NutritionAnalysis nutrition;
+  final NutritionAnalysisDto nutrition;
 
   Map<String, dynamic> toJson() => {
     'overall_score': overallScore,
@@ -54,26 +53,21 @@ class UploadImageResponseBody {
   };
 }
 
-/// 栄養成分分析
-class NutritionAnalysis {
-
-  factory NutritionAnalysis.fromJson(Map<String, dynamic> json) => 
-      NutritionAnalysis(
-        protein: NutritionItem.fromJson(
+/// 栄養成分分析（DTO）
+class NutritionAnalysisDto {
+  factory NutritionAnalysisDto.fromJson(Map<String, dynamic> json) =>
+      NutritionAnalysisDto(
+        protein: NutritionItemDto.fromJson(
           json['protein'] as Map<String, dynamic>,
         ),
-        fat: NutritionItem.fromJson(
-          json['fat'] as Map<String, dynamic>,
-        ),
-        fiber: NutritionItem.fromJson(
-          json['fiber'] as Map<String, dynamic>,
-        ),
-        carbohydrate: NutritionItem.fromJson(
+        fat: NutritionItemDto.fromJson(json['fat'] as Map<String, dynamic>),
+        fiber: NutritionItemDto.fromJson(json['fiber'] as Map<String, dynamic>),
+        carbohydrate: NutritionItemDto.fromJson(
           json['carbohydrate'] as Map<String, dynamic>,
         ),
       );
 
-  const NutritionAnalysis({
+  const NutritionAnalysisDto({
     required this.protein,
     required this.fat,
     required this.fiber,
@@ -81,16 +75,16 @@ class NutritionAnalysis {
   });
 
   /// タンパク質
-  final NutritionItem protein;
+  final NutritionItemDto protein;
 
   /// 脂質
-  final NutritionItem fat;
+  final NutritionItemDto fat;
 
   /// 食物繊維
-  final NutritionItem fiber;
+  final NutritionItemDto fiber;
 
   /// 炭水化物
-  final NutritionItem carbohydrate;
+  final NutritionItemDto carbohydrate;
 
   Map<String, dynamic> toJson() => {
     'protein': protein.toJson(),
@@ -100,16 +94,16 @@ class NutritionAnalysis {
   };
 }
 
-/// 栄養素項目
-class NutritionItem {
+/// 栄養素項目（DTO）
+class NutritionItemDto {
+  factory NutritionItemDto.fromJson(Map<String, dynamic> json) =>
+      NutritionItemDto(
+        value: (json['value'] as num).toDouble(),
+        rating: json['rating'] as String,
+        comment: json['comment'] as String,
+      );
 
-  factory NutritionItem.fromJson(Map<String, dynamic> json) => NutritionItem(
-    value: (json['value'] as num).toDouble(),
-    rating: json['rating'] as String,
-    comment: json['comment'] as String,
-  );
-
-  const NutritionItem({
+  const NutritionItemDto({
     required this.value,
     required this.rating,
     required this.comment,

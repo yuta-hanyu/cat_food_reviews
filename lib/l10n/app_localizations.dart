@@ -321,6 +321,24 @@ abstract class AppLocalizations {
   /// In ja, this message translates to:
   /// **'アップロードに失敗しました'**
   String get uploadError;
+
+  /// No description provided for @reviewTitle.
+  ///
+  /// In ja, this message translates to:
+  /// **'成分評価結果'**
+  String get reviewTitle;
+
+  /// No description provided for @backButton.
+  ///
+  /// In ja, this message translates to:
+  /// **'戻る'**
+  String get backButton;
+
+  /// No description provided for @reviewDataNotFound.
+  ///
+  /// In ja, this message translates to:
+  /// **'レビューデータが見つかりません'**
+  String get reviewDataNotFound;
 }
 
 class _AppLocalizationsDelegate

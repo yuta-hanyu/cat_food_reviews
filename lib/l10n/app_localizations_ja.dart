@@ -123,4 +123,13 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get uploadError => 'アップロードに失敗しました';
+
+  @override
+  String get reviewTitle => '成分評価結果';
+
+  @override
+  String get backButton => '戻る';
+
+  @override
+  String get reviewDataNotFound => 'レビューデータが見つかりません';
 }

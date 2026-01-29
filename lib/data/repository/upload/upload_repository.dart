@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:cat_food_reviews/data/service/model/upload_image_response_body.dart';
+import 'package:cat_food_reviews/data/repository/upload/review_analysis.dart';
 import 'package:cat_food_reviews/data/common/result/result.dart';
 import 'package:cat_food_reviews/data/common/result/error/repository_error.dart';
 
@@ -12,8 +12,6 @@ abstract class UploadRepository {
   ///
   /// [imageFile] - アップロード対象の画像ファイル
   ///
-  /// Returns: [Result<UploadImageResponseBody, RepositoryError>]
-  Future<Result<UploadImageResponseBody, RepositoryError>> uploadImage(
-    File imageFile,
-  );
+  /// Returns: [Result<ReviewAnalysis, RepositoryError>] - ドメインモデルを返す
+  Future<Result<ReviewAnalysis, RepositoryError>> uploadImage(File imageFile);
 }
