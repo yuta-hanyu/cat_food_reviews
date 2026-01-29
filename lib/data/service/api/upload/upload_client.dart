@@ -17,6 +17,9 @@ class UploadClient {
     UploadImageRequestBody requestBody,
   ) async {
     // 仮実装: サンプルデータを返す
+    await Future.delayed(
+      const Duration(seconds: 2),
+    ); // API呼び出しをシミュレート // ignore: unused_field
 
     // サンプルレスポンスデータ（Service層の責任）
     return const UploadImageResponseBody(

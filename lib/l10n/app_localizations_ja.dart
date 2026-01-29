@@ -119,7 +119,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get uploadButton => '成分を分析する';
 
   @override
-  String get uploadSuccess => '分析をはじめます！';
+  String get uploadSuccess => '分析がおわりました！';
 
   @override
   String get uploadError => 'アップロードに失敗しました';

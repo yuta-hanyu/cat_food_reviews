@@ -36,7 +36,7 @@
     "imagePickedFromGallery": "ギャラリーから写真を選択しました！",
     "imagePickError": "画像の選択に失敗しました",
     "uploadButton": "成分を分析する",
-    "uploadSuccess": "分析をはじめます！",
+    "uploadSuccess": "分析がおわりました！",
     "uploadError": "アップロードに失敗しました",
     "reviewTitle": "成分評価結果",
     "backButton": "戻る",
