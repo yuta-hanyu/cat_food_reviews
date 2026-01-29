@@ -29,8 +29,14 @@ class ReviewAnalysis {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(overallScore, oneLiner, overallEvaluation, goodPoints, badPoints, nutrition);
+  int get hashCode => Object.hash(
+    overallScore,
+    oneLiner,
+    overallEvaluation,
+    goodPoints,
+    badPoints,
+    nutrition,
+  );
 
   bool _listEquals<T>(List<T>? a, List<T>? b) {
     if (a == null) return b == null;

@@ -40,5 +40,20 @@
     "uploadError": "アップロードに失敗しました",
     "reviewTitle": "成分評価結果",
     "backButton": "戻る",
-    "reviewDataNotFound": "レビューデータが見つかりません"
+    "saveToHistory": "履歴保存",
+    "savedToHistoryMessage": "履歴に保存しました",
+    "rescanButton": "再スキャン",
+    "nutritionDetailsTitle": "栄養素詳細",
+    "proteinLabel": "タンパク質",
+    "fatLabel": "脂質",
+    "fiberLabel": "繊維",
+    "carbohydrateLabel": "炭水化物",
+    "ratingOptimal": "適正",
+    "ratingSlightlyHigh": "やや高め",
+    "ratingSlightlyLow": "やや低め",
+    "ratingHigh": "高め",
+    "ratingLow": "低め",
+    "scannedPhotoTitle": "スキャンした写真",
+    "goodPointsTitle": "Goodポイント",
+    "concernPointsTitle": "気になるポイント"
 }

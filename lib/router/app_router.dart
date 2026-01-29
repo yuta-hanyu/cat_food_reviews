@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:cat_food_reviews/ui/onboarding/onboarding_screen.dart';
 import 'package:cat_food_reviews/ui/upload/upload_screen.dart';
+import 'package:cat_food_reviews/ui/upload/model/review_navigation_data.dart';
 import 'package:cat_food_reviews/ui/review/review_screen.dart';
 import 'package:cat_food_reviews/ui/main/main_screen.dart';
 import 'package:cat_food_reviews/ui/history/history_screen.dart';
@@ -19,13 +20,6 @@ final appRouter = GoRouter(
       path: AppRoutes.onboarding,
       builder: (context, state) => const OnboardingScreen(),
     ),
-    GoRoute(
-      path: AppRoutes.review,
-      builder: (context, state) {
-        final imagePath = state.uri.queryParameters['imagePath'];
-        return ReviewScreen(imagePath: imagePath);
-      },
-    ),
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {
         return MainScreen(navigationShell: navigationShell);
@@ -36,6 +30,15 @@ final appRouter = GoRouter(
             GoRoute(
               path: AppRoutes.upload,
               builder: (context, state) => const UploadScreen(),
+              routes: [
+                GoRoute(
+                  path: 'review',
+                  builder: (context, state) {
+                    final navigationData = state.extra as ReviewNavigationData?;
+                    return ReviewScreen(imagePath: navigationData?.imagePath);
+                  },
+                ),
+              ],
             ),
           ],
         ),

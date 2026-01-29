@@ -9,11 +9,13 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
     required this.title,
     this.icon,
     this.onBackPressed,
+    this.actions,
   });
 
   final String title;
   final IconData? icon;
   final VoidCallback? onBackPressed;
+  final List<Widget>? actions;
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +42,7 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
         ],
       ),
       centerTitle: true,
+      actions: actions,
     );
   }
 
