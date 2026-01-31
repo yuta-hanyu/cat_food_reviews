@@ -30,8 +30,12 @@ class UploadRepositoryImpl implements UploadRepository {
           overallScore: dto.overallScore,
           oneLiner: dto.oneLiner,
           overallEvaluation: dto.overallEvaluation,
-          goodPoints: dto.goodPoints,
-          badPoints: dto.badPoints,
+          goodPoints: dto.goodPoints
+              .map((e) => ReviewPoint(title: e.title, content: e.content))
+              .toList(),
+          badPoints: dto.badPoints
+              .map((e) => ReviewPoint(title: e.title, content: e.content))
+              .toList(),
           nutrition: NutritionAnalysis(
             protein: NutritionItem(
               value: dto.nutrition.protein.value,

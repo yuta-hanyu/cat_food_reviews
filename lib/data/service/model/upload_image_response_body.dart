@@ -6,10 +6,10 @@ class UploadImageResponseBody {
         oneLiner: json['one_liner'] as String,
         overallEvaluation: json['overall_evaluation'] as String,
         goodPoints: (json['good_points'] as List<dynamic>)
-            .map((e) => e as String)
+            .map((e) => GoodPoint.fromJson(e as Map<String, dynamic>))
             .toList(),
         badPoints: (json['bad_points'] as List<dynamic>)
-            .map((e) => e as String)
+            .map((e) => BadPoint.fromJson(e as Map<String, dynamic>))
             .toList(),
         nutrition: NutritionAnalysisDto.fromJson(
           json['nutrition'] as Map<String, dynamic>,
@@ -35,10 +35,10 @@ class UploadImageResponseBody {
   final String overallEvaluation;
 
   /// 良いポイント
-  final List<String> goodPoints;
+  final List<GoodPoint> goodPoints;
 
   /// 悪いポイント
-  final List<String> badPoints;
+  final List<BadPoint> badPoints;
 
   /// 栄養成分分析
   final NutritionAnalysisDto nutrition;
@@ -47,10 +47,46 @@ class UploadImageResponseBody {
     'overall_score': overallScore,
     'one_liner': oneLiner,
     'overall_evaluation': overallEvaluation,
-    'good_points': goodPoints,
-    'bad_points': badPoints,
+    'good_points': goodPoints.map((e) => e.toJson()).toList(),
+    'bad_points': badPoints.map((e) => e.toJson()).toList(),
     'nutrition': nutrition.toJson(),
   };
+}
+
+/// 良いポイント
+class GoodPoint {
+  factory GoodPoint.fromJson(Map<String, dynamic> json) => GoodPoint(
+    title: json['title'] as String,
+    content: json['content'] as String,
+  );
+
+  const GoodPoint({required this.title, required this.content});
+
+  /// タイトル
+  final String title;
+
+  /// 内容
+  final String content;
+
+  Map<String, dynamic> toJson() => {'title': title, 'content': content};
+}
+
+/// 悪いポイント
+class BadPoint {
+  factory BadPoint.fromJson(Map<String, dynamic> json) => BadPoint(
+    title: json['title'] as String,
+    content: json['content'] as String,
+  );
+
+  const BadPoint({required this.title, required this.content});
+
+  /// タイトル
+  final String title;
+
+  /// 内容
+  final String content;
+
+  Map<String, dynamic> toJson() => {'title': title, 'content': content};
 }
 
 /// 栄養成分分析（DTO）

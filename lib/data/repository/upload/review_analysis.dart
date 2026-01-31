@@ -12,8 +12,8 @@ class ReviewAnalysis {
   final int overallScore;
   final String oneLiner;
   final String overallEvaluation;
-  final List<String> goodPoints;
-  final List<String> badPoints;
+  final List<ReviewPoint> goodPoints;
+  final List<ReviewPoint> badPoints;
   final NutritionAnalysis nutrition;
 
   @override
@@ -74,4 +74,23 @@ class NutritionItem {
   final double value;
   final String rating;
   final String comment;
+}
+
+/// レビューポイント（良い点・気になる点）
+class ReviewPoint {
+  const ReviewPoint({required this.title, required this.content});
+
+  final String title;
+  final String content;
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    return other is ReviewPoint &&
+        other.title == title &&
+        other.content == content;
+  }
+
+  @override
+  int get hashCode => Object.hash(title, content);
 }

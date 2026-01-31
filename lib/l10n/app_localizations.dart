@@ -429,6 +429,18 @@ abstract class AppLocalizations {
   /// In ja, this message translates to:
   /// **'気になるポイント'**
   String get concernPointsTitle;
+
+  /// No description provided for @scoreLabel.
+  ///
+  /// In ja, this message translates to:
+  /// **'点'**
+  String get scoreLabel;
+
+  /// No description provided for @percentSymbol.
+  ///
+  /// In ja, this message translates to:
+  /// **'%'**
+  String get percentSymbol;
 }
 
 class _AppLocalizationsDelegate

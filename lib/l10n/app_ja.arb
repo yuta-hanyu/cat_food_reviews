@@ -55,5 +55,7 @@
     "ratingLow": "低め",
     "scannedPhotoTitle": "スキャンした写真",
     "goodPointsTitle": "Goodポイント",
-    "concernPointsTitle": "気になるポイント"
+    "concernPointsTitle": "気になるポイント",
+    "scoreLabel": "点",
+    "percentSymbol": "%"
 }

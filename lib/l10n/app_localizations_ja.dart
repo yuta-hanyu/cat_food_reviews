@@ -177,4 +177,10 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get concernPointsTitle => '気になるポイント';
+
+  @override
+  String get scoreLabel => '点';
+
+  @override
+  String get percentSymbol => '%';
 }
