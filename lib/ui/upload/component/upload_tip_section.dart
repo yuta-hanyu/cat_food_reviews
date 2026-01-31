@@ -12,51 +12,46 @@ class UploadTipSection extends StatelessWidget {
     final l10n = AppLocalizations.of(context);
 
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: Colors.orange.withValues(alpha: 0.1),
+          width: 1,
+        ),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withValues(alpha: 0.2),
-            blurRadius: 12,
-            offset: const Offset(0, 6),
+            color: Colors.black.withValues(alpha: 0.05),
+            blurRadius: 8,
+            offset: const Offset(0, 2),
           ),
         ],
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Light bulb icon in white circle
+          // Light bulb icon in orange circle
           Container(
-            padding: const EdgeInsets.all(8),
+            width: 40,
+            height: 40,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Colors.orange.withValues(alpha: 0.1),
               shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.1),
-                  blurRadius: 6,
-                  offset: const Offset(0, 2),
-                ),
-              ],
             ),
-            child: Icon(Icons.lightbulb, color: Colors.orange[600], size: 20),
+            child: const Icon(Icons.lightbulb, color: Colors.orange, size: 20),
           ),
-          const SizedBox(width: 16),
+          const SizedBox(width: 12),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 TextMBold(
                   content: l10n.uploadTipTitle,
-                  color: SemanticColorToken.backgroundBlack,
+                  color: SemanticColorToken.textDefault,
                 ),
-                const SizedBox(height: 6),
-                TextS(
-                  content: l10n.uploadTipDescription,
-                  color: SemanticColorToken.backgroundDark,
-                ),
+                const SizedBox(height: 4),
+                TextS(content: l10n.uploadTipDescription, color: Colors.grey),
               ],
             ),
           ),

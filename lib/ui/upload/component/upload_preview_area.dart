@@ -20,36 +20,30 @@ class UploadPreviewArea extends StatelessWidget {
 
     return Container(
       width: double.infinity,
-      height: 240,
+      height: 220,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(32),
-        gradient: const LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            Color(0xFFE8B4B8), // ライトピンク
-            Color(0xFFD4A5A0), // ピンクベージュ
-            Color(0xFFCDA196), // ベージュ
-          ],
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.pink.withValues(alpha: 0.2),
-            blurRadius: 16,
-            offset: const Offset(0, 8),
-          ),
-        ],
+        borderRadius: BorderRadius.circular(24),
+        color: uiState.selectedImage != null
+            ? Colors.transparent
+            : Colors.white.withValues(alpha: 0.5),
+        border: uiState.selectedImage == null
+            ? Border.all(
+                color: Colors.grey.withValues(alpha: 0.3),
+                width: 2,
+                strokeAlign: BorderSide.strokeAlignInside,
+              )
+            : null,
       ),
       child: Stack(
         children: [
           // Image preview or placeholder
           if (uiState.selectedImage != null)
             ClipRRect(
-              borderRadius: BorderRadius.circular(32),
+              borderRadius: BorderRadius.circular(24),
               child: Image.file(
                 uiState.selectedImage!,
                 width: double.infinity,
-                height: 240,
+                height: 220,
                 fit: BoxFit.cover,
               ),
             )
@@ -59,46 +53,75 @@ class UploadPreviewArea extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // White circle with pink camera icon
+                  // Pink circle with camera icon and add icon
                   Container(
                     width: 80,
                     height: 80,
                     decoration: BoxDecoration(
-                      color: SemanticColorToken.backgroundWhite,
+                      color: Colors.pink[50],
                       shape: BoxShape.circle,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withValues(alpha: 0.1),
-                          blurRadius: 12,
-                          offset: const Offset(0, 4),
+                    ),
+                    child: const Stack(
+                      children: [
+                        Center(
+                          child: Icon(
+                            Icons.camera_alt,
+                            size: 40,
+                            color: Colors.pink,
+                          ),
+                        ),
+                        Positioned(
+                          top: 0,
+                          right: 0,
+                          child: Icon(
+                            Icons.add_circle,
+                            size: 20,
+                            color: Colors.pink,
+                          ),
                         ),
                       ],
                     ),
-                    child: Icon(
-                      Icons.camera_alt,
-                      size: 50,
-                      color: Colors.pink[200],
-                    ),
                   ),
-                  const SizedBox(height: 24),
+                  const SizedBox(height: 16),
                   TextMBold(
                     content: l10n.uploadPreviewTitle,
-                    color: SemanticColorToken.backgroundWhite,
+                    color: SemanticColorToken.textDefault,
+                  ),
+                  const SizedBox(height: 4),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        l10n.uploadPreviewSubtitle,
+                        style: const TextStyle(
+                          fontSize: 14,
+                          color: Colors.grey,
+                        ),
+                      ),
+                      const SizedBox(width: 4),
+                      const Icon(
+                        Icons.sentiment_satisfied_alt,
+                        size: 16,
+                        color: Colors.orange,
+                      ),
+                    ],
                   ),
                 ],
               ),
             ),
-          // Paw print in top right corner (only when no image)
-          if (uiState.selectedImage == null)
-            Positioned(
-              top: 20,
-              right: 24,
-              child: Icon(
-                Icons.pets,
-                size: 28,
-                color: Colors.white.withValues(alpha: 0.8),
-              ),
+          // Decorative paw prints (only when no image)
+          if (uiState.selectedImage == null) ...[
+            const Positioned(
+              bottom: -16,
+              left: -16,
+              child: Icon(Icons.pets, size: 64, color: Colors.pink),
             ),
+            const Positioned(
+              top: 24,
+              right: 24,
+              child: Icon(Icons.pets, size: 32, color: Colors.pink),
+            ),
+          ],
           // Clear image button (when image is selected)
           if (uiState.selectedImage != null)
             Positioned(

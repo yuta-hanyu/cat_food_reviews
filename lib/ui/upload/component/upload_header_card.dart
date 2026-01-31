@@ -22,47 +22,77 @@ class UploadHeaderCard extends StatelessWidget {
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(24),
+            boxShadow: [
+              BoxShadow(
+                color: SemanticColorToken.primary.withValues(alpha: 0.15),
+                blurRadius: 20,
+                offset: const Offset(0, 4),
+              ),
+            ],
           ),
-          child: Column(
+          child: Stack(
             children: [
-              HeadingXLarge(
-                content: l10n.uploadScreenMainTitle,
-                color: SemanticColorToken.textDefault,
+              // Decorative elements
+              const Positioned(
+                top: 4,
+                right: 4,
+                child: Icon(Icons.auto_awesome, color: Colors.yellow, size: 20),
               ),
-              const SizedBox(height: 24),
-
-              // Description text (centered)
-              TextM(content: l10n.uploadScreenDescription),
-              const SizedBox(height: 8),
-
-              // Highlighted ingredients text with instructions in one line
-              Wrap(
-                alignment: WrapAlignment.center,
-                crossAxisAlignment: WrapCrossAlignment.center,
+              const Positioned(
+                bottom: 4,
+                left: 4,
+                child: Icon(Icons.auto_awesome, color: Colors.pink, size: 16),
+              ),
+              Column(
                 children: [
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 8,
-                      vertical: 4,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.pink[100],
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: TextMBold(
-                      content: l10n.uploadScreenIngredients,
-                      color: Colors.white,
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      HeadingXLarge(
+                        content: l10n.uploadScreenMainTitle,
+                        color: SemanticColorToken.textDefault,
+                      ),
+                      const SizedBox(width: 4),
+                      const Icon(Icons.pets, color: Colors.blue, size: 16),
+                      const Icon(Icons.pets, color: Colors.blue, size: 12),
+                    ],
                   ),
-                  const SizedBox(width: 8),
-                  TextM(content: l10n.uploadScreenInstructions),
-                ],
-              ),
-              const SizedBox(height: 12),
+                  const SizedBox(height: 24),
 
-              TextM(
-                content: l10n.uploadScreenSubtitle,
-                textAlign: TextAlign.center,
+                  // Description text (centered)
+                  TextM(content: l10n.uploadScreenDescription),
+                  const SizedBox(height: 8),
+
+                  // Highlighted ingredients text with instructions in one line
+                  Wrap(
+                    alignment: WrapAlignment.center,
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 2,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.pink[100],
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: TextMBold(
+                          content: l10n.uploadScreenIngredients,
+                          color: SemanticColorToken.textWhite,
+                        ),
+                      ),
+                      const SizedBox(width: 4),
+                      TextM(content: l10n.uploadScreenInstructions),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+
+                  TextM(
+                    content: l10n.uploadScreenSubtitle,
+                    textAlign: TextAlign.center,
+                  ),
+                ],
               ),
             ],
           ),
