@@ -313,7 +313,7 @@ abstract class AppLocalizations {
   /// No description provided for @uploadSuccess.
   ///
   /// In ja, this message translates to:
-  /// **'分析をはじめます！'**
+  /// **'分析がおわりました！'**
   String get uploadSuccess;
 
   /// No description provided for @uploadError.
@@ -321,6 +321,126 @@ abstract class AppLocalizations {
   /// In ja, this message translates to:
   /// **'アップロードに失敗しました'**
   String get uploadError;
+
+  /// No description provided for @reviewTitle.
+  ///
+  /// In ja, this message translates to:
+  /// **'成分評価結果'**
+  String get reviewTitle;
+
+  /// No description provided for @backButton.
+  ///
+  /// In ja, this message translates to:
+  /// **'戻る'**
+  String get backButton;
+
+  /// No description provided for @saveToHistory.
+  ///
+  /// In ja, this message translates to:
+  /// **'履歴保存'**
+  String get saveToHistory;
+
+  /// No description provided for @savedToHistoryMessage.
+  ///
+  /// In ja, this message translates to:
+  /// **'履歴に保存しました'**
+  String get savedToHistoryMessage;
+
+  /// No description provided for @rescanButton.
+  ///
+  /// In ja, this message translates to:
+  /// **'再スキャン'**
+  String get rescanButton;
+
+  /// No description provided for @nutritionDetailsTitle.
+  ///
+  /// In ja, this message translates to:
+  /// **'栄養素詳細'**
+  String get nutritionDetailsTitle;
+
+  /// No description provided for @proteinLabel.
+  ///
+  /// In ja, this message translates to:
+  /// **'タンパク質'**
+  String get proteinLabel;
+
+  /// No description provided for @fatLabel.
+  ///
+  /// In ja, this message translates to:
+  /// **'脂質'**
+  String get fatLabel;
+
+  /// No description provided for @fiberLabel.
+  ///
+  /// In ja, this message translates to:
+  /// **'繊維'**
+  String get fiberLabel;
+
+  /// No description provided for @carbohydrateLabel.
+  ///
+  /// In ja, this message translates to:
+  /// **'炭水化物'**
+  String get carbohydrateLabel;
+
+  /// No description provided for @ratingOptimal.
+  ///
+  /// In ja, this message translates to:
+  /// **'適正'**
+  String get ratingOptimal;
+
+  /// No description provided for @ratingSlightlyHigh.
+  ///
+  /// In ja, this message translates to:
+  /// **'やや高め'**
+  String get ratingSlightlyHigh;
+
+  /// No description provided for @ratingSlightlyLow.
+  ///
+  /// In ja, this message translates to:
+  /// **'やや低め'**
+  String get ratingSlightlyLow;
+
+  /// No description provided for @ratingHigh.
+  ///
+  /// In ja, this message translates to:
+  /// **'高め'**
+  String get ratingHigh;
+
+  /// No description provided for @ratingLow.
+  ///
+  /// In ja, this message translates to:
+  /// **'低め'**
+  String get ratingLow;
+
+  /// No description provided for @scannedPhotoTitle.
+  ///
+  /// In ja, this message translates to:
+  /// **'スキャンした写真'**
+  String get scannedPhotoTitle;
+
+  /// No description provided for @goodPointsTitle.
+  ///
+  /// In ja, this message translates to:
+  /// **'Goodポイント'**
+  String get goodPointsTitle;
+
+  /// No description provided for @concernPointsTitle.
+  ///
+  /// In ja, this message translates to:
+  /// **'気になるポイント'**
+  String get concernPointsTitle;
+
+  /// No description provided for @scoreLabel.
+  ///
+  /// In ja, this message translates to:
+  /// **'点'**
+  String get scoreLabel;
+
+  /// No description provided for @percentSymbol.
+  ///
+  /// In ja, this message translates to:
+  /// **'%'**
+  String get percentSymbol;
 }
 
 class _AppLocalizationsDelegate

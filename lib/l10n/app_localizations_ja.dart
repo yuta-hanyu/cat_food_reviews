@@ -119,8 +119,68 @@ class AppLocalizationsJa extends AppLocalizations {
   String get uploadButton => '成分を分析する';
 
   @override
-  String get uploadSuccess => '分析をはじめます！';
+  String get uploadSuccess => '分析がおわりました！';
 
   @override
   String get uploadError => 'アップロードに失敗しました';
+
+  @override
+  String get reviewTitle => '成分評価結果';
+
+  @override
+  String get backButton => '戻る';
+
+  @override
+  String get saveToHistory => '履歴保存';
+
+  @override
+  String get savedToHistoryMessage => '履歴に保存しました';
+
+  @override
+  String get rescanButton => '再スキャン';
+
+  @override
+  String get nutritionDetailsTitle => '栄養素詳細';
+
+  @override
+  String get proteinLabel => 'タンパク質';
+
+  @override
+  String get fatLabel => '脂質';
+
+  @override
+  String get fiberLabel => '繊維';
+
+  @override
+  String get carbohydrateLabel => '炭水化物';
+
+  @override
+  String get ratingOptimal => '適正';
+
+  @override
+  String get ratingSlightlyHigh => 'やや高め';
+
+  @override
+  String get ratingSlightlyLow => 'やや低め';
+
+  @override
+  String get ratingHigh => '高め';
+
+  @override
+  String get ratingLow => '低め';
+
+  @override
+  String get scannedPhotoTitle => 'スキャンした写真';
+
+  @override
+  String get goodPointsTitle => 'Goodポイント';
+
+  @override
+  String get concernPointsTitle => '気になるポイント';
+
+  @override
+  String get scoreLabel => '点';
+
+  @override
+  String get percentSymbol => '%';
 }

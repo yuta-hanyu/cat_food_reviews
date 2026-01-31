@@ -12,6 +12,7 @@ import 'package:cat_food_reviews/widgets/app_snack_bar.dart';
 import 'package:cat_food_reviews/widgets/app_full_screen_loading.dart';
 import 'package:cat_food_reviews/widgets/buttons/primary_button.dart';
 import 'package:cat_food_reviews/widgets/token/color/semantic_color_token.dart';
+import 'package:cat_food_reviews/widgets/bottom_fixed_container.dart';
 
 class UploadScreen extends ConsumerStatefulWidget {
   const UploadScreen({super.key});
@@ -60,48 +61,56 @@ class _UploadScreenState extends ConsumerState<UploadScreen> {
       appBar: AppHeader(title: l10n.uploadScreenTitle, icon: Icons.camera_alt),
       body: Stack(
         children: [
-          SingleChildScrollView(
-            padding: const EdgeInsets.all(24.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Main title with paw icon (centered layout)
-                const UploadHeaderCard(),
-                const SizedBox(height: 32),
+          Column(
+            children: [
+              // Scrollable content
+              Expanded(
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.all(24.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Main title with paw icon (centered layout)
+                      const UploadHeaderCard(),
+                      const SizedBox(height: 32),
 
-                // Camera and Gallery buttons
-                UploadActionButtons(
-                  onCameraTap: () => viewModel.onCameraButtonTapped(),
-                  onGalleryTap: () => viewModel.onGalleryButtonTapped(),
-                ),
-                const SizedBox(height: 32),
+                      // Camera and Gallery buttons
+                      UploadActionButtons(
+                        onCameraTap: () => viewModel.onCameraButtonTapped(),
+                        onGalleryTap: () => viewModel.onGalleryButtonTapped(),
+                      ),
+                      const SizedBox(height: 32),
 
-                // Preview area
-                UploadPreviewArea(
-                  uiState: uiState,
-                  onClearImage: () => viewModel.clearImage(),
-                ),
-                const SizedBox(height: 24),
+                      // Preview area
+                      UploadPreviewArea(
+                        uiState: uiState,
+                        onClearImage: () => viewModel.clearImage(),
+                      ),
+                      const SizedBox(height: 24),
 
-                // Tip section
-                const UploadTipSection(),
-                const SizedBox(height: 32),
-
-                // Upload button (only show when image is selected)
-                if (uiState.selectedImage != null)
-                  PrimaryButton(
-                    content: l10n.uploadButton,
-                    rightIcon: const Icon(
-                      Icons.arrow_forward_ios,
-                      size: 16,
-                      color: SemanticColorToken.backgroundWhite,
-                    ),
-                    onPressed: uiState.isLoading
-                        ? null
-                        : () => viewModel.uploadImage(),
+                      // Tip section
+                      const UploadTipSection(),
+                      const SizedBox(height: 32),
+                    ],
                   ),
-              ],
-            ),
+                ),
+              ),
+
+              // Fixed bottom upload button (only show when image is selected)
+              BottomFixedContainer(
+                child: PrimaryButton(
+                  content: l10n.uploadButton,
+                  rightIcon: const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 16,
+                    color: SemanticColorToken.backgroundWhite,
+                  ),
+                  onPressed: uiState.isLoading
+                      ? null
+                      : () => viewModel.uploadImage(),
+                ),
+              ),
+            ],
           ),
           // フルスクリーンローディング
           if (uiState.isLoading) const AppFullScreenLoading(),

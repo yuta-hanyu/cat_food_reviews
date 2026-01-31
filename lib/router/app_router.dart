@@ -3,6 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:cat_food_reviews/ui/onboarding/onboarding_screen.dart';
 import 'package:cat_food_reviews/ui/upload/upload_screen.dart';
+import 'package:cat_food_reviews/ui/upload/model/review_navigation_data.dart';
+import 'package:cat_food_reviews/ui/review/review_screen.dart';
 import 'package:cat_food_reviews/ui/main/main_screen.dart';
 import 'package:cat_food_reviews/ui/history/history_screen.dart';
 import 'package:cat_food_reviews/ui/my_cat/my_cat_screen.dart';
@@ -28,6 +30,15 @@ final appRouter = GoRouter(
             GoRoute(
               path: AppRoutes.upload,
               builder: (context, state) => const UploadScreen(),
+              routes: [
+                GoRoute(
+                  path: 'review',
+                  builder: (context, state) {
+                    final navigationData = state.extra as ReviewNavigationData?;
+                    return ReviewScreen(imagePath: navigationData?.imagePath);
+                  },
+                ),
+              ],
             ),
           ],
         ),

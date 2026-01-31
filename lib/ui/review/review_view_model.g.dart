@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'upload_view_model.dart';
+part of 'review_view_model.dart';
 
 // **************************************************************************
 // RiverpodGenerator
@@ -9,52 +9,52 @@ part of 'upload_view_model.dart';
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
 
-@ProviderFor(UploadViewModel)
-const uploadViewModelProvider = UploadViewModelProvider._();
+@ProviderFor(ReviewViewModel)
+const reviewViewModelProvider = ReviewViewModelProvider._();
 
-final class UploadViewModelProvider
-    extends $NotifierProvider<UploadViewModel, UploadUiState> {
-  const UploadViewModelProvider._()
+final class ReviewViewModelProvider
+    extends $NotifierProvider<ReviewViewModel, ReviewUiState> {
+  const ReviewViewModelProvider._()
     : super(
         from: null,
         argument: null,
         retry: null,
-        name: r'uploadViewModelProvider',
+        name: r'reviewViewModelProvider',
         isAutoDispose: true,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
 
   @override
-  String debugGetCreateSourceHash() => _$uploadViewModelHash();
+  String debugGetCreateSourceHash() => _$reviewViewModelHash();
 
   @$internal
   @override
-  UploadViewModel create() => UploadViewModel();
+  ReviewViewModel create() => ReviewViewModel();
 
   /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(UploadUiState value) {
+  Override overrideWithValue(ReviewUiState value) {
     return $ProviderOverride(
       origin: this,
-      providerOverride: $SyncValueProvider<UploadUiState>(value),
+      providerOverride: $SyncValueProvider<ReviewUiState>(value),
     );
   }
 }
 
-String _$uploadViewModelHash() => r'1d4f18f0d3e436e21d5d03ce0f1346a5e354c5ce';
+String _$reviewViewModelHash() => r'4b212a717636aba591d519b09d4d219ddc7d0672';
 
-abstract class _$UploadViewModel extends $Notifier<UploadUiState> {
-  UploadUiState build();
+abstract class _$ReviewViewModel extends $Notifier<ReviewUiState> {
+  ReviewUiState build();
   @$mustCallSuper
   @override
   void runBuild() {
     final created = build();
-    final ref = this.ref as $Ref<UploadUiState, UploadUiState>;
+    final ref = this.ref as $Ref<ReviewUiState, ReviewUiState>;
     final element =
         ref.element
             as $ClassProviderElement<
-              AnyNotifier<UploadUiState, UploadUiState>,
-              UploadUiState,
+              AnyNotifier<ReviewUiState, ReviewUiState>,
+              ReviewUiState,
               Object?,
               Object?
             >;

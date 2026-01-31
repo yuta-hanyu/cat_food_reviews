@@ -25,7 +25,7 @@ class UploadActionButtons extends StatelessWidget {
             icon: Icons.camera_alt,
             title: l10n.uploadCameraButton,
             subtitle: l10n.uploadCameraSubtext,
-            color: SemanticColorToken.primary,
+            color: SemanticColorToken.featureCamera,
             backgroundColor: Colors.pink.withValues(alpha: 0.6),
             onTap: onCameraTap,
           ),
@@ -53,61 +53,73 @@ class UploadActionButtons extends StatelessWidget {
     required Color backgroundColor,
     required VoidCallback onTap,
   }) {
-    return Material(
-      color: Colors.transparent,
-      borderRadius: BorderRadius.circular(20),
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(20),
-        splashColor: color.withValues(alpha: 0.3),
-        highlightColor: color.withValues(alpha: 0.1),
-        child: Container(
-          padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            color: backgroundColor,
-            borderRadius: BorderRadius.circular(20),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withValues(alpha: 0.1),
-                blurRadius: 12,
-                offset: const Offset(0, 4),
+    return AspectRatio(
+      aspectRatio: 1.0, // Square aspect ratio
+      child: Material(
+        color: Colors.transparent,
+        borderRadius: BorderRadius.circular(24),
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(24),
+          splashColor: Colors.white.withValues(alpha: 0.3),
+          highlightColor: Colors.white.withValues(alpha: 0.1),
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [color, color.withValues(alpha: 0.8)],
               ),
-            ],
-          ),
-          child: Column(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(24),
+              boxShadow: [
+                BoxShadow(
                   color: color.withValues(alpha: 0.5),
-                  shape: BoxShape.circle,
+                  blurRadius: 16,
+                  offset: const Offset(0, 4),
                 ),
-                child: Icon(
-                  icon,
-                  size: 28,
-                  color: SemanticColorToken.textWhite,
+              ],
+            ),
+            child:
+                // Content
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 64,
+                        height: 64,
+                        decoration: BoxDecoration(
+                          color: Colors.white.withValues(alpha: 0.2),
+                          shape: BoxShape.circle,
+                        ),
+                        child: Icon(icon, size: 32, color: Colors.white),
+                      ),
+                      const SizedBox(height: 12),
+                      TextMBold(
+                        content: title,
+                        textAlign: TextAlign.center,
+                        color: Colors.white,
+                      ),
+                      const SizedBox(height: 4),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 4,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: TextSBold(
+                          content: subtitle,
+                          color: color,
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              const SizedBox(height: 12),
-              TextMBold(
-                content: title,
-                textAlign: TextAlign.center,
-                color: SemanticColorToken.backgroundWhite,
-              ),
-              const SizedBox(height: 4),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                decoration: BoxDecoration(
-                  color: SemanticColorToken.backgroundWhite,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: TextSBold(
-                  content: subtitle,
-                  color: color,
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ],
           ),
         ),
       ),
