@@ -1,13 +1,7 @@
-enum NameErrorType {
-  required,
-  maxLength,
-}
+enum NameErrorType { required, maxLength }
 
 class NameValidationResult {
-  const NameValidationResult({
-    required this.isValid,
-    this.errorType,
-  });
+  const NameValidationResult({required this.isValid, this.errorType});
 
   final bool isValid;
   final NameErrorType? errorType;

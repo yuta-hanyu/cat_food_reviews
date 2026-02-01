@@ -191,7 +191,16 @@ class AppLocalizationsJa extends AppLocalizations {
   String get registerCatInfoTitle => '愛猫情報を登録しよう♪';
 
   @override
-  String get personalizedFoodEvaluationDesc => '年齢や体重に合わせた\n評価をお届けします';
+  String get personalizedFoodEvaluationDesc => '愛猫の成長段階や体型を考慮した分析をお届けします';
+
+  @override
+  String get personalizedFoodEvaluationPrefix => '愛猫の';
+
+  @override
+  String get personalizedFoodEvaluationHighlight => '成長段階や体型を考慮した';
+
+  @override
+  String get personalizedFoodEvaluationSuffix => 'きめ細やかな評価をご提供します';
 
   @override
   String get addPhotoLabel => '写真を追加';
@@ -246,4 +255,10 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get genderRequiredError => '性別を選択してください';
+
+  @override
+  String get takePhotoLabel => '写真を撮る';
+
+  @override
+  String get selectFromGalleryLabel => 'ギャラリーから選択';
 }

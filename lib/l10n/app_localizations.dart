@@ -457,8 +457,26 @@ abstract class AppLocalizations {
   /// No description provided for @personalizedFoodEvaluationDesc.
   ///
   /// In ja, this message translates to:
-  /// **'年齢や体重に合わせた\n評価をお届けします'**
+  /// **'愛猫の成長段階や体型を考慮した分析をお届けします'**
   String get personalizedFoodEvaluationDesc;
+
+  /// No description provided for @personalizedFoodEvaluationPrefix.
+  ///
+  /// In ja, this message translates to:
+  /// **'愛猫の'**
+  String get personalizedFoodEvaluationPrefix;
+
+  /// No description provided for @personalizedFoodEvaluationHighlight.
+  ///
+  /// In ja, this message translates to:
+  /// **'成長段階や体型を考慮した'**
+  String get personalizedFoodEvaluationHighlight;
+
+  /// No description provided for @personalizedFoodEvaluationSuffix.
+  ///
+  /// In ja, this message translates to:
+  /// **'きめ細やかな評価をご提供します'**
+  String get personalizedFoodEvaluationSuffix;
 
   /// No description provided for @addPhotoLabel.
   ///
@@ -567,6 +585,18 @@ abstract class AppLocalizations {
   /// In ja, this message translates to:
   /// **'性別を選択してください'**
   String get genderRequiredError;
+
+  /// No description provided for @takePhotoLabel.
+  ///
+  /// In ja, this message translates to:
+  /// **'写真を撮る'**
+  String get takePhotoLabel;
+
+  /// No description provided for @selectFromGalleryLabel.
+  ///
+  /// In ja, this message translates to:
+  /// **'ギャラリーから選択'**
+  String get selectFromGalleryLabel;
 }
 
 class _AppLocalizationsDelegate

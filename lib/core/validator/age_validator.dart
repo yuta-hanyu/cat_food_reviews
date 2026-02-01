@@ -1,13 +1,7 @@
-enum AgeErrorType {
-  notNumber,
-  outOfRange,
-}
+enum AgeErrorType { notNumber, outOfRange }
 
 class AgeValidationResult {
-  const AgeValidationResult({
-    required this.isValid,
-    this.errorType,
-  });
+  const AgeValidationResult({required this.isValid, this.errorType});
 
   final bool isValid;
   final AgeErrorType? errorType;

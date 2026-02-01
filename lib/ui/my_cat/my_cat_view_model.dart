@@ -65,7 +65,9 @@ class MyCatViewModel extends _$MyCatViewModel {
   }
 
   void onWeightFocusLost() {
-    final weightResult = WeightValidator.validate(state.weight?.toString() ?? '');
+    final weightResult = WeightValidator.validate(
+      state.weight?.toString() ?? '',
+    );
     if (!weightResult.isValid) {
       state = state.copyWith(
         showWeightError: true,
@@ -114,6 +116,10 @@ class MyCatViewModel extends _$MyCatViewModel {
     }
   }
 
+  void deleteProfileImage() {
+    state = state.copyWith(profileImage: null);
+  }
+
   Future<void> registerCat() async {
     if (!_validateAllFields()) {
       return;
@@ -123,6 +129,7 @@ class MyCatViewModel extends _$MyCatViewModel {
 
     try {
       // TODO: Implement actual registration logic
+      // ignore: inference_failure_on_instance_creation
       await Future.delayed(const Duration(seconds: 2));
 
       state = state.copyWith(isLoading: false);
@@ -156,7 +163,9 @@ class MyCatViewModel extends _$MyCatViewModel {
     }
 
     // Weight validation
-    final weightResult = WeightValidator.validate(state.weight?.toString() ?? '');
+    final weightResult = WeightValidator.validate(
+      state.weight?.toString() ?? '',
+    );
     if (!weightResult.isValid) {
       state = state.copyWith(
         showWeightError: true,
