@@ -183,4 +183,67 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get percentSymbol => '%';
+
+  @override
+  String get myCatRegistrationTitle => 'マイキャット登録';
+
+  @override
+  String get registerCatInfoTitle => '愛猫情報を登録しよう♪';
+
+  @override
+  String get personalizedFoodEvaluationDesc => '年齢や体重に合わせた\n評価をお届けします';
+
+  @override
+  String get addPhotoLabel => '写真を追加';
+
+  @override
+  String get catNameLabel => '猫ちゃんの名前';
+
+  @override
+  String get catNamePlaceholder => '例：モモちゃん';
+
+  @override
+  String get ageLabel => '年齢';
+
+  @override
+  String get ageUnit => '歳';
+
+  @override
+  String get weightLabel => '体重';
+
+  @override
+  String get weightUnit => 'kg';
+
+  @override
+  String get genderLabel => '性別';
+
+  @override
+  String get maleLabel => '男の子';
+
+  @override
+  String get femaleLabel => '女の子';
+
+  @override
+  String get registerCatButton => 'この内容で登録する';
+
+  @override
+  String get nameRequiredError => '名前を入力してください';
+
+  @override
+  String get nameMaxLengthError => '名前は50文字以下で入力してください';
+
+  @override
+  String get ageNotNumberError => '年齢は数値で入力してください';
+
+  @override
+  String get ageOutOfRangeError => '年齢は1〜30の範囲で入力してください';
+
+  @override
+  String get weightNotNumberError => '体重は数値で入力してください';
+
+  @override
+  String get weightOutOfRangeError => '体重は0.1〜5.0kgの範囲で入力してください';
+
+  @override
+  String get genderRequiredError => '性別を選択してください';
 }
