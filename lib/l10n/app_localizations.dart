@@ -441,6 +441,162 @@ abstract class AppLocalizations {
   /// In ja, this message translates to:
   /// **'%'**
   String get percentSymbol;
+
+  /// No description provided for @myCatRegistrationTitle.
+  ///
+  /// In ja, this message translates to:
+  /// **'マイキャット登録'**
+  String get myCatRegistrationTitle;
+
+  /// No description provided for @registerCatInfoTitle.
+  ///
+  /// In ja, this message translates to:
+  /// **'愛猫情報を登録しよう♪'**
+  String get registerCatInfoTitle;
+
+  /// No description provided for @personalizedFoodEvaluationDesc.
+  ///
+  /// In ja, this message translates to:
+  /// **'愛猫の成長段階や体型を考慮した分析をお届けします'**
+  String get personalizedFoodEvaluationDesc;
+
+  /// No description provided for @personalizedFoodEvaluationPrefix.
+  ///
+  /// In ja, this message translates to:
+  /// **'愛猫の'**
+  String get personalizedFoodEvaluationPrefix;
+
+  /// No description provided for @personalizedFoodEvaluationHighlight.
+  ///
+  /// In ja, this message translates to:
+  /// **'成長段階や体型を考慮した'**
+  String get personalizedFoodEvaluationHighlight;
+
+  /// No description provided for @personalizedFoodEvaluationSuffix.
+  ///
+  /// In ja, this message translates to:
+  /// **'きめ細やかな評価をご提供します'**
+  String get personalizedFoodEvaluationSuffix;
+
+  /// No description provided for @addPhotoLabel.
+  ///
+  /// In ja, this message translates to:
+  /// **'写真を追加'**
+  String get addPhotoLabel;
+
+  /// No description provided for @catNameLabel.
+  ///
+  /// In ja, this message translates to:
+  /// **'猫ちゃんの名前'**
+  String get catNameLabel;
+
+  /// No description provided for @catNamePlaceholder.
+  ///
+  /// In ja, this message translates to:
+  /// **'例：モモちゃん'**
+  String get catNamePlaceholder;
+
+  /// No description provided for @ageLabel.
+  ///
+  /// In ja, this message translates to:
+  /// **'年齢'**
+  String get ageLabel;
+
+  /// No description provided for @ageUnit.
+  ///
+  /// In ja, this message translates to:
+  /// **'歳'**
+  String get ageUnit;
+
+  /// No description provided for @weightLabel.
+  ///
+  /// In ja, this message translates to:
+  /// **'体重'**
+  String get weightLabel;
+
+  /// No description provided for @weightUnit.
+  ///
+  /// In ja, this message translates to:
+  /// **'kg'**
+  String get weightUnit;
+
+  /// No description provided for @genderLabel.
+  ///
+  /// In ja, this message translates to:
+  /// **'性別'**
+  String get genderLabel;
+
+  /// No description provided for @maleLabel.
+  ///
+  /// In ja, this message translates to:
+  /// **'男の子'**
+  String get maleLabel;
+
+  /// No description provided for @femaleLabel.
+  ///
+  /// In ja, this message translates to:
+  /// **'女の子'**
+  String get femaleLabel;
+
+  /// No description provided for @registerCatButton.
+  ///
+  /// In ja, this message translates to:
+  /// **'この内容で登録する'**
+  String get registerCatButton;
+
+  /// No description provided for @nameRequiredError.
+  ///
+  /// In ja, this message translates to:
+  /// **'名前を入力してください'**
+  String get nameRequiredError;
+
+  /// No description provided for @nameMaxLengthError.
+  ///
+  /// In ja, this message translates to:
+  /// **'名前は50文字以下で入力してください'**
+  String get nameMaxLengthError;
+
+  /// No description provided for @ageNotNumberError.
+  ///
+  /// In ja, this message translates to:
+  /// **'年齢は数値で入力してください'**
+  String get ageNotNumberError;
+
+  /// No description provided for @ageOutOfRangeError.
+  ///
+  /// In ja, this message translates to:
+  /// **'年齢は1〜30の範囲で入力してください'**
+  String get ageOutOfRangeError;
+
+  /// No description provided for @weightNotNumberError.
+  ///
+  /// In ja, this message translates to:
+  /// **'体重は数値で入力してください'**
+  String get weightNotNumberError;
+
+  /// No description provided for @weightOutOfRangeError.
+  ///
+  /// In ja, this message translates to:
+  /// **'体重は0.1〜5.0kgの範囲で入力してください'**
+  String get weightOutOfRangeError;
+
+  /// No description provided for @genderRequiredError.
+  ///
+  /// In ja, this message translates to:
+  /// **'性別を選択してください'**
+  String get genderRequiredError;
+
+  /// No description provided for @takePhotoLabel.
+  ///
+  /// In ja, this message translates to:
+  /// **'写真を撮る'**
+  String get takePhotoLabel;
+
+  /// No description provided for @selectFromGalleryLabel.
+  ///
+  /// In ja, this message translates to:
+  /// **'ギャラリーから選択'**
+  String get selectFromGalleryLabel;
 }
 
 class _AppLocalizationsDelegate
